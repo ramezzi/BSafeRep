@@ -5,6 +5,10 @@
 ### npm install to get the packages
 ### npm start
 
+![image](https://user-images.githubusercontent.com/45484174/136514266-d542aa1f-eb97-45a3-a202-1487056ead76.png)
+
+![image](https://user-images.githubusercontent.com/45484174/136514440-8d22837f-8c03-4727-85c3-dd48ea28b999.png)
+
 
 # Getting Started with Create React App
 
