@@ -1,7 +1,7 @@
 # Steps to set up this project
 
 ### git clone this repo
-### cd bsafe
+### cd bsafe ehkä? en nyt muista miten toi kloonaa noi mut kunha ootte oikees paikas tiedostorakennetta mis pääfilut
 ### npm install to get the packages
 ### npm start
 
