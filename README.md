@@ -1,3 +1,11 @@
+# Steps to set up this project
+
+### git clone this repo
+### cd bsafe
+### npm install to get the packages
+### npm start
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
