@@ -8,13 +8,16 @@ import {
 } from "react-router-dom";
 import HomepageCategories from './components/HomepageCategories';
 import QuizzesListning from './components/QuizzesListning';
-import {  FaAirbnb, FaHome, FaBook, FaQuestion, FaHeart, FaPersonBooth, FaPuzzlePiece } from "react-icons/fa";
+import {  FaAirbnb, FaHome, FaBook, FaQuestion, FaHeart, FaPersonBooth, FaPuzzlePiece, FaArrowAltCircleRight, FaUser } from "react-icons/fa";
+import { useHistory } from "react-router";
+import QuizzExample from './components/QuizzExample';
 
 function App() {
+
   return (
     <Router>
     <div>
-      <nav>
+      <nav style={{marginLeft: 0, paddingLeft: 0}}>
         <ul>
           <li style={{paddingTop: 20, fontSize: 30}}>
             <Link to="/"><FaHome/></Link>
@@ -22,14 +25,14 @@ function App() {
           <li style={{paddingTop: 20, fontSize: 30}}>
             <Link to="/about"><FaBook/></Link>
           </li>
-          <li style={{paddingTop: 20, fontSize: 30}}>
-            <Link to="/quizzes"><FaPuzzlePiece/></Link>
+          <li style={{paddingTop: 20, fontSize: 30, paddingBottom: 0, marginBottom: 0}}>
+            <Link to="/quizzes"><FaPuzzlePiece style={{color: '#6603fc'}} /></Link>
           </li>
           <li style={{paddingTop: 20, fontSize: 30}}>
             <Link to="/saved"><FaHeart/></Link>
           </li>
           <li style={{paddingTop: 20, fontSize: 30}}>
-            <Link to="/profile"><FaPersonBooth/></Link>
+            <Link to="/profile"><FaUser/></Link>
           </li>
         </ul>
       </nav>
@@ -42,6 +45,9 @@ function App() {
         </Route>
         <Route path="/quizzes">
           <Quizzes />
+        </Route>
+        <Route path="/quizzstart">
+          <QuizzStartpage />
         </Route>
         <Route path="/saved">
           <Saved />
@@ -60,8 +66,40 @@ function App() {
 
 function Home() {
   return <div>
-  <h2>Bsafe</h2>
+  <h2>BSafe</h2>
 <HomepageCategories />
+<div style={{width: '100%'}}>
+<h3 style={{marginTop: 160, marginLeft: 20}}>Category</h3>
+<div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray'}}>
+          <div style={{flex: 3}}>
+          <h3 style={{marginLeft: 20}}>Stage safety 1</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Stage Safety 1</p>
+      </div>
+      <div style={{flex: 1}}>
+          <p style={{marginTop: '35%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      </div>
+        </div>
+
+        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray'}}>
+          <div style={{flex: 3}}>
+          <h3 style={{marginLeft: 20}}>Light safety 1</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Light Safety 1</p>
+      </div>
+      <div style={{flex: 1}}>
+          <p style={{marginTop: '35%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      </div>
+        </div>
+
+        <div style={{borderWidth: 1, borderColor: "gray", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray'}}>
+          <div style={{flex: 3}}>
+          <h3 style={{marginLeft: 20}}>Event safety 1</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Event Safety 1</p>
+      </div>
+      <div style={{flex: 1}}>
+          <p style={{marginTop: '35%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      </div>
+        </div>
+        </div>
 </div>;
 }
 
@@ -71,8 +109,16 @@ function About() {
 
 function Quizzes() {
   return <div>
-    <h2>Quizzes</h2>
+      <h2>Quizzes</h2>
   <QuizzesListning />
+  </div>;
+}
+
+function QuizzStartpage() {
+
+  const history = useHistory();
+  return <div>
+    <QuizzExample />
   </div>;
 }
 
