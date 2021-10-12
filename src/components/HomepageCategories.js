@@ -21,9 +21,9 @@ function HomepageCategories() {
     return(
         <div>
         
-        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', width: '40%', height: 55, marginLeft: '50%', marginRight: '50%', marginRight: 10, marginBottom: 20}}>
+        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', width: '30%', height: 35, marginLeft: '60%', marginRight: '50%', marginRight: 10, marginBottom: 20}}>
           <div style={{flex: 4}}>
-          <p style={{marginLeft: 20}}>Search...</p>
+          <p style={{marginLeft: 20, marginTop: 5}}>Search...</p>
       </div>
         </div>
 

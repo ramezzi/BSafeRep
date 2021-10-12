@@ -1,5 +1,8 @@
 //import GameStatsStyle from './gamestats.css';
 import {  FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
+import SearchComponent from "./SearchComponent";
+import Stageimage from '../images/stageimage.jpg'
+import { useHistory } from "react-router";
 
 const data =  [
     {
@@ -14,53 +17,116 @@ const data =  [
         }
     ]
 
+    var isQuizzSelected = false
 
 function QuizzesListning() {
+
+    const history = useHistory();
 
   
     return(
         <div>
-        
-        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', width: '40%', height: 55, marginLeft: '50%', marginRight: '50%', marginRight: 10, marginBottom: 20}}>
-          <div style={{flex: 4}}>
-          <p style={{marginLeft: 20}}>Search quizzes...</p>
-      </div>
-      <div style={{flex: 1}}>
-          <p style={{marginTop: '25%', fontSize: 30}}><FaSearch/></p>
-      </div>
-        </div>
+       <SearchComponent />
 
-<h3 style={{marginLeft: 20}}>Category</h3>
-      <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: '#d8b9ff', boxShadow: '0px 0px 10px gray'}}>
-          <div style={{flex: 3}}>
+<h3 style={{marginLeft: 20, color: '#6603fc'}}>Stage safety Quizzes</h3>
+      <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}} onClick={() => history.push("/quizzstart")}>
+          <div style={{flex: 5}}>
           <h3 style={{marginLeft: 20}}>Stage safety 1</h3>
       <p style={{marginLeft: 20}}>Quizz for the course Stage Safety 1</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '35%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
+          <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, position: 'absolute', top: 30, right: 50, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
-        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: '#d8b9ff', boxShadow: '0px 0px 10px gray'}}>
-          <div style={{flex: 3}}>
-          <h3 style={{marginLeft: 20}}>Light safety 1</h3>
-      <p style={{marginLeft: 20}}>Quizz for the course Light Safety 1</p>
+        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}}>
+          <div style={{flex: 5}}>
+          <h3 style={{marginLeft: 20}}>Stage safety 2</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Stage Safety 2</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '35%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
-        <div style={{borderWidth: 1, borderColor: "gray", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: '#d8b9ff', boxShadow: '0px 0px 10px gray'}}>
-          <div style={{flex: 3}}>
+        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}}>
+          <div style={{flex: 5}}>
+          <h3 style={{marginLeft: 20}}>Stage safety 3</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Stage Safety 3</p>
+      </div>
+      <div style={{flex: 1}}>
+          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      </div>
+        </div>
+
+
+        <h3 style={{marginLeft: 20, color: '#6603fc'}}>Event safety Quizzes</h3>
+      <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}}>
+          <div style={{flex: 5}}>
           <h3 style={{marginLeft: 20}}>Event safety 1</h3>
       <p style={{marginLeft: 20}}>Quizz for the course Event Safety 1</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '35%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
+
+        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}}>
+          <div style={{flex: 5}}>
+          <h3 style={{marginLeft: 20}}>Event safety 2</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Event Safety 2</p>
+      </div>
+      <div style={{flex: 1}}>
+          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      </div>
         </div>
+
+        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}}>
+          <div style={{flex: 5}}>
+          <h3 style={{marginLeft: 20}}>Event safety 3</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Event Safety 3</p>
+      </div>
+      <div style={{flex: 1}}>
+          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      </div>
+        </div>
+
+
+
+        <h3 style={{marginLeft: 20, color: '#6603fc'}}>Light safety Quizzes</h3>
+      <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}}>
+          <div style={{flex: 5}}>
+          <h3 style={{marginLeft: 20}}>Light safety 1</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Light Safety 1</p>
+      </div>
+      <div style={{flex: 1}}>
+          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      </div>
+        </div>
+
+        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}}>
+          <div style={{flex: 5}}>
+          <h3 style={{marginLeft: 20}}>Light safety 2</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Light Safety 2</p>
+      </div>
+      <div style={{flex: 1}}>
+          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      </div>
+        </div>
+
+        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}}>
+          <div style={{flex: 5}}>
+          <h3 style={{marginLeft: 20}}>Light safety 3</h3>
+      <p style={{marginLeft: 20}}>Quizz for the course Light Safety 3</p>
+      </div>
+      <div style={{flex: 1}}>
+          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      </div>
+        </div>
+
+</div>
+
     );
   }
   export default QuizzesListning;
