@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   background-color: #333333;
-  margin: 0;
+  margin: 0px;
 }
 
 .App-logo {
@@ -45,7 +45,8 @@ ul {
   position: fixed;
   bottom: 0px;
   margin: 0;
-  left: 0px;
+  left: 0;
+  background-color: 'white';
 }
 
 li {
@@ -56,6 +57,8 @@ li {
   background-color: white;
   text-decoration: none;
   color: black;
+  left: 0;
+  padding-left: 0px;
 }
 
 li a {
@@ -66,7 +69,7 @@ li a {
   background-color: white;
   text-decoration: none;
   color: black;
-  padding: 20;
+  padding: 0px;
 }
 
 h2 {

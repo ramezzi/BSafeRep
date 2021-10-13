@@ -18,8 +18,8 @@ function App() {
     <Router>
     <div>
       <nav style={{marginLeft: 0, paddingLeft: 0}}>
-        <ul>
-          <li style={{paddingTop: 20, fontSize: 30}}>
+        <ul style={{backgroundColor: 'white'}}>
+          <li style={{paddingTop: 20, fontSize: 30, marginLeft: 0}}>
             <Link to="/"><FaHome/></Link>
           </li>
           <li style={{paddingTop: 20, fontSize: 30}}>

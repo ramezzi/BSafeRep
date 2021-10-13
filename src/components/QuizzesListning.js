@@ -36,7 +36,7 @@ function QuizzesListning() {
       </div>
       <div style={{flex: 1}}>
       <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
-          <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, position: 'absolute', top: 30, right: 50, color: 'white'}}><FaArrowAltCircleRight/></p>
+          <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
@@ -46,7 +46,8 @@ function QuizzesListning() {
       <p style={{marginLeft: 20}}>Quizz for the course Stage Safety 2</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
+      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
@@ -56,7 +57,8 @@ function QuizzesListning() {
       <p style={{marginLeft: 20}}>Quizz for the course Stage Safety 3</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
+      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
@@ -68,7 +70,8 @@ function QuizzesListning() {
       <p style={{marginLeft: 20}}>Quizz for the course Event Safety 1</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
+      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
@@ -78,7 +81,8 @@ function QuizzesListning() {
       <p style={{marginLeft: 20}}>Quizz for the course Event Safety 2</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
+      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
@@ -88,7 +92,8 @@ function QuizzesListning() {
       <p style={{marginLeft: 20}}>Quizz for the course Event Safety 3</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
+      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
@@ -101,7 +106,8 @@ function QuizzesListning() {
       <p style={{marginLeft: 20}}>Quizz for the course Light Safety 1</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
+      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
@@ -111,7 +117,8 @@ function QuizzesListning() {
       <p style={{marginLeft: 20}}>Quizz for the course Light Safety 2</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
+      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
@@ -121,7 +128,8 @@ function QuizzesListning() {
       <p style={{marginLeft: 20}}>Quizz for the course Light Safety 3</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '40%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
+      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 

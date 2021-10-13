@@ -28,7 +28,7 @@ function QuizzExample() {
     return(
         
         <div>
-            { isQuizzStarted ? <div></div> : <div style={{position: 'absolute', top: 0, left: 0, height: '100%', width: '100%', backgroundColor: 'white', opacity: '0.9'}}>
+            { isQuizzStarted ? <div></div> : <div style={{position: 'absolute', top: 0, left: 0, height: '100%', width: '100%', backgroundColor: 'white', opacity: '0.92'}}>
                 <div style={{height: 250, width: '70%', position: 'absolute', left: '15%', top: '20%', backgroundColor: 'grey', opacity: 1,}}>
                 <h2>Hei!</h2>
                 <p>Tervetuloa aloittamaan testiä Stage Safety 1.</p> <p>Kun olet valmis suorittamaan kokeen klikkaa allaolevaa painiketta aloittaaksesi. Onnea!</p>
