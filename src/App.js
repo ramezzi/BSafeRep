@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import HomepageCategories from './components/HomepageCategories';
 import QuizzesListning from './components/QuizzesListning';
-import {  FaAirbnb, FaHome, FaBook, FaQuestion, FaHeart, FaPersonBooth, FaPuzzlePiece, FaArrowAltCircleRight, FaUser } from "react-icons/fa";
+import {  FaSearch, FaHome, FaBook, FaQuestion, FaHeart, FaPersonBooth, FaPuzzlePiece, FaArrowAltCircleRight, FaUser } from "react-icons/fa";
 import { useHistory } from "react-router";
 import QuizzExample from './components/QuizzExample';
 
@@ -18,7 +18,7 @@ function App() {
     <Router>
     <div>
       <nav style={{marginLeft: 0, paddingLeft: 0}}>
-        <ul style={{backgroundColor: 'white'}}>
+        <ul style={{backgroundColor: 'white', boxShadow: '0px 0px 10px gray'}}>
           <li style={{paddingTop: 20, fontSize: 30, marginLeft: 0}}>
             <Link to="/"><FaHome/></Link>
           </li>
@@ -66,11 +66,10 @@ function App() {
 
 function Home() {
   return <div>
-  <h2>BSafe</h2>
-<HomepageCategories />
-<div style={{width: '100%'}}>
-<h3 style={{marginTop: 160, marginLeft: 20}}>Category</h3>
-<div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray'}}>
+  <HomepageCategories />
+  <div style={{width: '100%'}}>
+  <h3 style={{marginTop: 160, marginLeft: 20}}>Category</h3>
+  <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray'}}>
           <div style={{flex: 3}}>
           <h3 style={{marginLeft: 20}}>Stage safety 1</h3>
       <p style={{marginLeft: 20}}>Quizz for the course Stage Safety 1</p>
@@ -104,13 +103,244 @@ function Home() {
 }
 
 function About() {
-  return <h2>Material</h2>;
+  return (
+    <div>
+      <div
+        class="header"
+        style={{
+          width: "80%",
+          margin: "10px auto",
+          display: "flex",
+          flexdirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <h1>Material</h1>
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "grey",
+            borderStyle: "solid",
+            margin: "20px 0px 0px 0px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "lightgray",
+            boxShadow: "0px 0px 10px gray",
+            width: "40%",
+            height: 35,
+          }}
+        >
+          <div style={{ flex: 4 }}>
+            <p style={{ marginLeft: 20, marginTop: 5 }}>Search...</p>
+          </div>
+          <div style={{ flex: 1 }}>
+            <p style={{ marginTop: "20%", fontSize: 20 }}>
+              <FaSearch />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div style={{ width: "100%" }}>
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgrey",
+            borderStyle: "solid",
+            margin: "10px 40px 10px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>1. Työskentele turvallisesti</h3>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgray",
+            borderStyle: "solid",
+            margin: "10px 40px 10px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>
+              2. Luo turvallinen ja ympäristöystävällinen työpaikka
+            </h3>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgray",
+            borderStyle: "solid",
+            margin: "10px 40px 10px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>3. Työskentele ergonomisesti</h3>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgray",
+            borderStyle: "solid",
+            margin: "10px 40px 10px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>4. Käytä henkilösuojaimia</h3>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgrey",
+            borderStyle: "solid",
+            margin: "10px 40px 10px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>
+              5. Varmista paloturvallisuus esitysympäristössä
+            </h3>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgrey",
+            borderStyle: "solid",
+            margin: "10px 40px 10px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>
+              6. Työskentele korkealla turvallisesti
+            </h3>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgrey",
+            borderStyle: "solid",
+            margin: "10px 40px 10px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>
+              7. Käytä esitystekniikan tilapäissähköä turvallisesti
+            </h3>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgrey",
+            borderStyle: "solid",
+            margin: "10px 40px 10px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>8. Käytä tuokaluja turvallisesti</h3>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgrey",
+            borderStyle: "solid",
+            margin: "10px 40px 10px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>
+              9. Työskentele turvallisesti kemikaalien kanssa
+            </h3>
+          </div>
+        </div>
+
+        <div
+          style={{
+            borderWidth: 1,
+            borderColor: "lightgrey",
+            borderStyle: "solid",
+            margin: "10px 40px 100px 40px",
+            borderRadius: 10,
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: "white",
+            boxShadow: "0px 0px 10px gray",
+          }}
+        >
+          <div style={{ flex: 3 }}>
+            <h3 style={{ marginLeft: 20 }}>
+              10. Pystytä ja ripusta esitystekniikkaa turvallisesti
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function Quizzes() {
   return <div>
-      <h2>Quizzes</h2>
-  <QuizzesListning />
+      <QuizzesListning />
   </div>;
 }
 
