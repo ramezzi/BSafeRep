@@ -1,4 +1,6 @@
-import firebase from 'firebase'
+
+import 'firebase/firestore';
+import firebase from 'firebase/app';
 
 const firebaseConfig = {
     apiKey: "AIzaSyD0yQUgLSZdwpZJIPpuT1rvVf9AGK-yauI",
@@ -9,7 +11,7 @@ const firebaseConfig = {
     appId: "1:648545722460:web:555629e1c165ef55ab8699"
   };
 
-  let firebaseapp
+  let firebaseApp
 
   if (!firebase.apps.length) {
     

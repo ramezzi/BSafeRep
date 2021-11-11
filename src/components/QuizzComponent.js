@@ -4,13 +4,13 @@ import {  FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
 import { useHistory } from "react-router";
 import Firesafety from '../images/firesafety.jpg';
 import QuizzExample from "./QuizzExample";
-import firebase from 'firebase';
+//import firebase from 'firebase';
+import { db } from "../firebaseConfig";
 
 
 
 function QuizzComponent( {quizzdata, navigation} ) {
 
-    const db = firebase.firestore()
 
     const quizzdatanew = quizzdata;
 

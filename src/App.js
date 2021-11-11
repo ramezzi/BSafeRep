@@ -11,7 +11,6 @@ import QuizzesListning from './components/QuizzesListning';
 import {  FaSearch, FaHome, FaBook, FaQuestion, FaHeart, FaPersonBooth, FaPuzzlePiece, FaArrowAltCircleRight, FaUser } from "react-icons/fa";
 import { useHistory } from "react-router";
 import QuizzExample from './components/QuizzExample';
-import firebase from 'firebase';
 
 function App() {
 
