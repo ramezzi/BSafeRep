@@ -3,27 +3,50 @@ import {  FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
 import SearchComponent from "./SearchComponent";
 import Stageimage from '../images/stageimage.jpg'
 import { useHistory } from "react-router";
+import { useState, useEffect } from "react";
+import firebase from 'firebase';
+
+
 
 const data =  [
-    {
-    name: 'Category1',
-    id: 1,
-    description: 'Course about light basics'
-    },
-    {
-        name: 'Category2',
-        id: 2,
-        description: 'Course about stage basics'
-        }
-    ]
+  {
+  name: 'Category1',
+  id: 1,
+  description: 'Course about light basics'
+  },
+  {
+      name: 'Category2',
+      id: 2,
+      description: 'Course about stage basics'
+      }
+  ]
+
+
+  
+function QuizzesListning() {
+
+  const db = firebase.firestore()
+
+
+  const [quizzess, setQuizzess] = useState([]);
 
     var isQuizzSelected = false
 
-function QuizzesListning() {
-
     const history = useHistory();
 
-  
+    const fetchQuizzes = async () => {
+
+      const response=db.collection('quizzes');
+      const data=await response.get();
+      data.docs.forEach(item=>{
+      setQuizzess([...quizzess,item.data()])
+    })
+    }
+
+    useEffect(() => {
+      fetchQuizzes();
+    }, [])
+
     return(
         <div>
        <SearchComponent />
