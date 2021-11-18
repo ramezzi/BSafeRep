@@ -36,5 +36,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "![image](https://user-images.githubusercontent.com/45484174/136514266-d542aa1f-eb97-45a3-a202-1487056ead76.png)",
+  "main": "routes.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramezzi/BSafeRep.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramezzi/BSafeRep/issues"
+  },
+  "homepage": "." 
 }
