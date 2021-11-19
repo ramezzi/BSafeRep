@@ -66,14 +66,13 @@ function QuizzesListning() {
 
        {quizzess.map(item => {
     return (
-      <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}}>
+      <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}} onClick={() => history.push({pathname: "/quizzstart", state: item})}>
           <div style={{flex: 5}}>
           <h3 style={{marginLeft: 20}}>{item.name}</h3>
       <p style={{marginLeft: 20}}>{item.description}</p>
       </div>
       <div style={{flex: 1}}>
-      <img src={Stageimage} alt="Stage image" style={{width: 150, height: '90%', margin: 5, borderRadius: 10}} />
-      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: -80, marginLeft: 80, color: 'white'}}><FaArrowAltCircleRight onClick={() => history.push("/quizzstart")}/></p>
+      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: 30, marginLeft: 0, color: '#6603fc'}}><FaArrowAltCircleRight onClick={() => history.push({pathname: "/quizzstart", state: item})}/></p>
       </div>
         </div>
     )

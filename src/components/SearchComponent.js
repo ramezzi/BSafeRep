@@ -42,14 +42,14 @@ function SearchComponent() {
             backgroundColor: "lightgray",
             boxShadow: "0px 0px 10px gray",
             width: "45%",
-            height: 55,
+            height: 50,
           }}
         >
           <div style={{ flex: 4 }}>
-            <p style={{ marginLeft: 10 }}>Search quizzes...</p>
+            <p style={{ marginLeft: 10, fontSize: 14 }}>Search quizzes...</p>
           </div>
           <div style={{ flex: 1 }}>
-            <p style={{ marginTop: "25%", fontSize: 30 }}>
+            <p style={{ marginTop: "25%", fontSize: 20 }}>
               <FaSearch />
             </p>
           </div>
