@@ -38,7 +38,8 @@ function QuizzComponent( {quizzdata, navigation} ) {
 
     var quizzResultObject = {
         "user": "testuser",
-        "usersCorrectAnswers" : correctAnswers,
+        "quizzId": quizzdata.id,
+        "usersCorrectAnswers" : totalCorrect,
         "date": currentDate,
     }
 

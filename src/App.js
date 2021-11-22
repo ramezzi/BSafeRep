@@ -11,6 +11,7 @@ import QuizzesListning from './components/QuizzesListning';
 import {  FaSearch, FaHome, FaBook, FaQuestion, FaHeart, FaPersonBooth, FaPuzzlePiece, FaArrowAltCircleRight, FaUser } from "react-icons/fa";
 import { useHistory, useLocation } from "react-router";
 import QuizzExample from './components/QuizzExample';
+import SavedQuizzesListning from './components/savedQuizzeslist';
 
 function App() {
 
@@ -361,6 +362,7 @@ function Saved() {
   
   <h3>Tallennetut Quizzit</h3>
   <p>Lista firebasesta kirjautuneen käyttäjän tallennetuista quizzeista.</p>
+  <SavedQuizzesListning />
   
   <h3>Tallennetut kurssit</h3>
   <p>Lista firebasesta kirjautuneen käyttäjän tallennetuista kursseista.</p></div>;
