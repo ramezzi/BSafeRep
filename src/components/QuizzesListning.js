@@ -50,7 +50,6 @@ function QuizzesListning() {
     })
 
       console.log('fetched quizzes', quizzess)
-      console.log('example of questions list ', quizzess[0].questions)
      // data.docs.forEach(item=>{
     //  setQuizzess([...quizzess,item.data()])
     

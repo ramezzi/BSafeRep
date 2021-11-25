@@ -29,6 +29,8 @@ function SavedQuizzesListning() {
 
 
   const [quizzess, setQuizzess] = useState([]);
+  const [usersQuizzess, setUsersQuizzess] = useState([]);
+  var addingList = []
 
     var isQuizzSelected = false
 
@@ -45,11 +47,18 @@ function SavedQuizzesListning() {
         querySnapshot.forEach(element => {
             var data = element.data();
             setQuizzess(arr => [...arr , data]);
+            for (var i = 0; i++; i -= quizzess.length) {
+              if (quizzess[i].username === "testuser") {
+                addingList.push(quizzess[i])
+              }
+              setUsersQuizzess(addingList);
+              console.log('adding list ', addingList);
+            }
               
         });
     })
 
-      console.log('fetched quizzes', quizzess)
+      console.log('fetched quizzes', quizzess, addingList)
      // data.docs.forEach(item=>{
     //  setQuizzess([...quizzess,item.data()])
     
