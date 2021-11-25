@@ -1,5 +1,6 @@
 //import GameStatsStyle from './gamestats.css';
 import {  FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
+import "../styles/categories.css";
 
 const data =  [
     {
@@ -20,38 +21,35 @@ function SearchComponent() {
 
   
     return (
-      <div
-        style={{
-          width: "80%",
-          margin: "10px auto",
-          display: "flex",
-          flexdirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        <h1>Quizzes</h1>
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "grey",
-            borderStyle: "solid",
-            margin: "15px 0px 0px 0px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "lightgray",
-            boxShadow: "0px 0px 10px gray",
-            width: "45%",
-            height: 55,
-          }}
-        >
-          <div style={{ flex: 4 }}>
-            <p style={{ marginLeft: 10 }}>Search quizzes...</p>
-          </div>
-          <div style={{ flex: 1 }}>
-            <p style={{ marginTop: "25%", fontSize: 30 }}>
-              <FaSearch />
-            </p>
+      <div class="quizzTopNav">
+        <div class="header">
+          <h1 class="bigHeader">Quizzes</h1>
+          <div
+            style={{
+              borderWidth: 1,
+              borderColor: "grey",
+              borderStyle: "solid",
+              margin: "20px 0px 0px 0px",
+              borderRadius: 10,
+              display: "flex",
+              flexDirection: "row",
+              backgroundColor: "lightgray",
+              boxShadow: "0px 0px 10px gray",
+              width: "40%",
+              height: 35,
+              marginRight: "50%",
+              marginRight: 10,
+              marginBottom: 20,
+            }}
+          >
+            <div style={{ flex: 4 }}>
+              <p style={{ marginLeft: 20, marginTop: 5 }}>Search...</p>
+            </div>
+            <div style={{ flex: 1 }}>
+              <p style={{ marginTop: "20%", fontSize: 20 }}>
+                <FaSearch />
+              </p>
+            </div>
           </div>
         </div>
       </div>
