@@ -24,11 +24,13 @@ const data =  [
 
 
   
-function QuizzesListning() {
+function SavedQuizzesListning() {
 
 
 
   const [quizzess, setQuizzess] = useState([]);
+  const [usersQuizzess, setUsersQuizzess] = useState([]);
+  var addingList = []
 
     var isQuizzSelected = false
 
@@ -36,7 +38,7 @@ function QuizzesListning() {
 
     const fetchQuizzes = async () => {
 
-      const response=db.collection('quizzes');
+      const response=db.collection('usersSavedQuizzes');
       const data=await response.get()
       .then((querySnapshot) => {
              
@@ -45,11 +47,18 @@ function QuizzesListning() {
         querySnapshot.forEach(element => {
             var data = element.data();
             setQuizzess(arr => [...arr , data]);
+            for (var i = 0; i++; i -= quizzess.length) {
+              if (quizzess[i].username === "testuser") {
+                addingList.push(quizzess[i])
+              }
+              setUsersQuizzess(addingList);
+              console.log('adding list ', addingList);
+            }
               
         });
     })
 
-      console.log('fetched quizzes', quizzess)
+      console.log('fetched quizzes', quizzess, addingList)
      // data.docs.forEach(item=>{
     //  setQuizzess([...quizzess,item.data()])
     
@@ -62,17 +71,16 @@ function QuizzesListning() {
 
     return(
         <div>
-       <SearchComponent />
-
        {quizzess.map(item => {
     return (
       <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 110}} onClick={() => history.push({pathname: "/quizzstart", state: item})}>
           <div style={{flex: 5}}>
-          <h3 style={{marginLeft: 20}}>{item.name}</h3>
-      <p style={{marginLeft: 20}}>{item.description}</p>
+          <h3 style={{marginLeft: 20}}>{item.quizzName}</h3>
+      <p style={{marginLeft: 20, float: 'left'}}>{item.username}</p>
+      <p style={{marginLeft: 20, float: 'left'}}>{item.date}</p>
       </div>
       <div style={{flex: 1}}>
-      <p style={{marginTop: '40%', fontSize: 40, zIndex: 2, marginTop: 30, marginLeft: 0, color: '#6603fc'}}><FaArrowAltCircleRight onClick={() => history.push({pathname: "/quizzstart", state: item})}/></p>
+      <p style={{marginTop: '40%', fontSize: 30, zIndex: 2, marginTop: 30, marginLeft: 0, color: '#6603fc'}}>{item.correctAnswers}/10</p>
       </div>
         </div>
     )
@@ -82,4 +90,4 @@ function QuizzesListning() {
 
     );
   }
-  export default QuizzesListning;
+  export default SavedQuizzesListning;
