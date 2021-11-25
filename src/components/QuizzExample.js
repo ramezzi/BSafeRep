@@ -1,5 +1,5 @@
 //import GameStatsStyle from './gamestats.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {  FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
 import { useHistory } from "react-router";
 import Firesafety from '../images/firesafety.jpg';
@@ -47,13 +47,24 @@ const quizzdata = [{
 }
 ];
 
-    var isQuizzSelected = false
 
-function QuizzExample( {navigation}) {
+function QuizzExample( {navigation, quizz}) {
 
-    const history = useHistory();
+  var isQuizzSelected = false
+  const history = useHistory();
+  var quizzWeGot = quizz;
+  console.log(quizzWeGot, 'jsjoasd');
+  const [isQuizzStarted, setIsQuizzStarted] = useState(false);
+  const [weGoWithThisQuizz, setWeGoWithThisQuizz] = useState({});
 
-    const [isQuizzStarted, setIsQuizzStarted] = useState(false);
+  const updateNewQuizz = () => {
+    setWeGoWithThisQuizz(quizzWeGot);
+    console.log(quizzWeGot, 'yes ok');
+  }
+
+  useEffect(() => {
+    updateNewQuizz();
+  }, [])
   
     return (
       <div>
@@ -68,7 +79,7 @@ function QuizzExample( {navigation}) {
               height: "100%",
               width: "100%",
               backgroundColor: "white",
-              opacity: "0.92",
+              opacity: "0.95",
             }}
           >
             <div
@@ -78,16 +89,34 @@ function QuizzExample( {navigation}) {
                 position: "absolute",
                 left: "15%",
                 top: "20%",
-                backgroundColor: "grey",
+                backgroundColor: "lightgray",
                 opacity: 1,
               }}
             >
               <h2>Hei!</h2>
-              <p>Tervetuloa aloittamaan testiä Stage Safety 1.</p>{" "}
-              <p>
+              <p style={{textAlign: 'center'}}>Tervetuloa aloittamaan testiä {quizz.name}</p>{" "}
+              <p style={{textAlign: 'center'}}>
                 Kun olet valmis suorittamaan kokeen klikkaa allaolevaa
                 painiketta aloittaaksesi. Onnea!
               </p>
+              <button
+                onClick={() => history.push('./quizzes')}
+                style={{
+                  margin: 10,
+                  background: "white",
+                  borderWidth: 1,
+                  borderColor: "gray",
+                  borderRadius: 10,
+                  height: 50,
+                  boxShadow: "0px 0px 5px lightgray",
+                  fontSize: 20,
+                  width: "35%",
+                  marginLeft: "10%",
+                  float: 'left'
+                }}
+              >
+                PERUUTA
+              </button>
               <button
                 onClick={() => setIsQuizzStarted(true)}
                 style={{
@@ -99,8 +128,9 @@ function QuizzExample( {navigation}) {
                   height: 50,
                   boxShadow: "0px 0px 5px lightgray",
                   fontSize: 20,
-                  width: "25%",
-                  marginLeft: "40%",
+                  width: "35%",
+                  marginLeft: "10%",
+                  float: 'left'
                 }}
               >
                 ALOITA
@@ -120,7 +150,7 @@ function QuizzExample( {navigation}) {
           BACK
         </button>
 
-        <h2>Stage Quizz 1 </h2>
+        <h2>{quizz.name} </h2>
 
         <div
           style={{
@@ -132,7 +162,7 @@ function QuizzExample( {navigation}) {
             borderColor: "lightgray",
           }}
         >
-         <QuizzComponent quizzdata={quizzdata} navigation={navigation} />
+         <QuizzComponent quizzdata={quizzWeGot} navigation={navigation} />
         </div>
 
       
