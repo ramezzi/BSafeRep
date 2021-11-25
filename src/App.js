@@ -12,12 +12,54 @@ import {  FaSearch, FaHome, FaBook, FaQuestion, FaHeart, FaPersonBooth, FaPuzzle
 import { useHistory, useLocation } from "react-router";
 import QuizzExample from './components/QuizzExample';
 import SavedQuizzesListning from './components/savedQuizzeslist';
+import LoginComponent from './components/LoginComponent';
+import { useState } from 'react/cjs/react.development';
+import { authh } from './firebaseConfig';
+import 'firebase/auth';
 
 function App() {
 
+const [isLoggedIn, setIsLoggenIn] = useState(false);
+const [value, setValue] = useState("Email");
+const [token, setToken] = useState();
+const [checked, setChecked] = useState(true);
+const [showError, setShowError] = useState(false);
+
+const updateUserEmail = (value) => {
+ // setUserEmail(value)
+}
+
+const login = () => {
+
+ /* const auth = getAuth();
+  signInWithEmailAndPassword(auth, value, "testpassword")
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+*/
+ if (checked === false) {
+
+  setShowError(true)
+ } else {
+  setIsLoggenIn(true);
+ }
+ }
+
+const [formState, setFormState] = useState({
+  login: true,
+  username: '',
+  password: '',
+});
 
   return (
     <Router>
+      {isLoggedIn ?
     <div>
       <nav style={{marginLeft: 0, paddingLeft: 0}}>
         <ul style={{backgroundColor: 'white', boxShadow: '0px 0px 10px gray'}}>
@@ -60,8 +102,46 @@ function App() {
         <Route path="/">
           <Home />
         </Route>
+        <Route path="/login">
+          <Saved />
+        </Route>
       </Switch>
-    </div>
+    </div> : 
+    <div>
+<h1 style={{color: '#6603fc', textAlign: 'center'}}>BSafe</h1>
+<h2>Login</h2>
+
+<input style={{ width: '70%', marginLeft: '15%' }}
+          value={formState.username}
+          onChange={(e) =>
+            setFormState({
+              ...formState,
+              username: e.target.value
+            })
+          }
+          type="text"
+          placeholder="Your username"
+        />
+
+<input  style={{ width: '70%', marginLeft: '15%' }}
+          value={formState.password}
+          onChange={(e) =>
+            setFormState({
+              ...formState,
+              password: e.target.value
+            })
+          }
+          type="text"
+          placeholder="Your password"
+        />
+
+  <input style={{marginLeft: '15%', marginTop: 50}} type="checkbox"  defaultChecked={checked} onChange={() => setChecked(!checked)}/>
+  
+      <p style={{fontSize: 14, marginLeft: '15%', width: '70%'}}>Olen hyväksynyt tietosuojaevästeet tms. mitä ikinä tähän laitetaankaan.</p>
+
+        <button style={{width: 100, height: 40, margin: '5%', marginLeft: '45%'}} onClick={ () => login() }>Kirjaudu</button>
+
+    </div> }
   </Router>
   );
 }
@@ -378,6 +458,16 @@ function Profile() {
   <h4>Other info</h4>
   
   <h2>Suoritetut testit</h2></div>);
+  
+}
+
+function Login() {
+  return ( 
+  <div>
+  <LoginComponent />
+  <p>Olen hyväksynyt tietosuojaevästeet tms. mitä ikinä tähän laitetaankaan.</p>
+  </div>
+  );
   
 }
 

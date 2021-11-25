@@ -34,6 +34,7 @@ function QuizzComponent( {quizzdata, navigation} ) {
     console.log('ojfjpo9fdsjo', quizzdata)
     var questionlist = quizzdata.questions
     console.log(questionlist)
+    console.log('answers', quizzdata.questions[0].answers)
   
 
     var quizzResultObject = {
@@ -85,6 +86,7 @@ function QuizzComponent( {quizzdata, navigation} ) {
 
 const onfirstupdate = () => { 
 setShowing(quizzdata);
+setCurrentCorrect(quizzdata.questions[0].correctAnswer);
 
 }
 

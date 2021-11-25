@@ -1,4 +1,5 @@
 import 'firebase/firestore';
+import 'firebase/auth';
 import firebase from 'firebase/app';
 
 const firebaseConfig = {
@@ -10,7 +11,6 @@ const firebaseConfig = {
     appId: "1:648545722460:web:555629e1c165ef55ab8699"
   };
 
-  let firebaseapp
   let firebaseApp
 
   if (!firebase.apps.length) {
@@ -20,5 +20,6 @@ const firebaseConfig = {
     firebase.app();
   }
   
+  //export const authh = firebase.auth() 
   export const db = firebase.firestore()
   console.log('export');
