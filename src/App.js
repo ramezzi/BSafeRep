@@ -64,13 +64,8 @@ function App() {
     <Router>
       {isLoggedIn ? (
         <div>
-          <nav style={{ marginLeft: 0, paddingLeft: 0 }}>
-            <ul
-              style={{
-                backgroundColor: "white",
-                boxShadow: "0px 0px 10px gray",
-              }}
-            >
+          <nav>
+            <ul>
               <li>
                 <Link to="/">
                   <FaHome />
@@ -481,8 +476,8 @@ function QuizzStartpage() {
 
 function Saved() {
   return (
-    <div>
-      <h2>Saved</h2>
+    <div class="homeContainer">
+      <h1 class="bigHeader">Bookmarks</h1>
 
       <h3>Tallennetut Quizzit</h3>
       <p>Lista firebasesta kirjautuneen käyttäjän tallennetuista quizzeista.</p>
@@ -496,8 +491,8 @@ function Saved() {
 
 function Profile() {
   return (
-    <div>
-      <h2>Profile</h2>
+    <div class="homeContainer">
+      <h1 class="bigHeader">Profile</h1>
       <h4 style={{ marginTop: 60 }}>Tervetuloa, testiuser!</h4>
       <h4>Trainee</h4>
       <h4>testi.user@email.com</h4>
@@ -510,7 +505,7 @@ function Profile() {
 
 function Login() {
   return (
-    <div>
+    <div class="homeContainer">
       <LoginComponent />
       <p>
         Olen hyväksynyt tietosuojaevästeet tms. mitä ikinä tähän laitetaankaan.
