@@ -14,8 +14,11 @@ import QuizzExample from './components/QuizzExample';
 import SavedQuizzesListning from './components/savedQuizzeslist';
 import LoginComponent from './components/LoginComponent';
 import { useState } from 'react/cjs/react.development';
-import { authh } from './firebaseConfig';
+import { auth } from './firebaseConfig';
 import 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import ETTEmaterial from './ETTEmaterial';
+import SavedMaterialList from './components/MaterialList';
 
 function App() {
 
@@ -31,8 +34,9 @@ const updateUserEmail = (value) => {
 
 const login = () => {
 
- /* const auth = getAuth();
-  signInWithEmailAndPassword(auth, value, "testpassword")
+ /* const autht = auth.getAuth();
+  const signin = auth.signInWithEmailAndPassword()
+  signin(auth, "testuser@emaill.com", "testpassword")
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
@@ -42,20 +46,23 @@ const login = () => {
     const errorCode = error.code;
     const errorMessage = error.message;
   });
-*/
+
  if (checked === false) {
 
   setShowError(true)
  } else {
   setIsLoggenIn(true);
+ } */
+ setIsLoggenIn(true);
  }
- }
-
+ 
 const [formState, setFormState] = useState({
   login: true,
   username: '',
   password: '',
 });
+
+const history = useHistory();
 
   return (
     <Router>
@@ -147,37 +154,29 @@ const [formState, setFormState] = useState({
 }
 
 function Home() {
+
+  const history = useHistory();
   return <div>
   <HomepageCategories />
   <div style={{width: '100%'}}>
   <h3 style={{marginTop: 160, marginLeft: 20}}>Category</h3>
-  <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray'}}>
+  <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 200}}>
           <div style={{flex: 3}}>
-          <h3 style={{marginLeft: 20}}>Stage safety 1</h3>
-      <p style={{marginLeft: 20}}>Material for the course Stage Safety 1</p>
+          <h3 style={{marginLeft: 20}}>ETTE-materiaali kätevästi taskussasi</h3>
+      <p style={{marginLeft: 20}}>Tutustu ja opiskele ETTE-materiaalia helposti ja kätevästi missä tahansa.</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '35%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+          <p style={{marginTop: '35%', fontSize: 40, marginLeft: 30}} onClick={() => history.push('/about')}><FaArrowAltCircleRight/></p>
       </div>
         </div>
 
-        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray'}}>
+        <div style={{borderWidth: 1, borderColor: "grey", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray', height: 200}}>
           <div style={{flex: 3}}>
-          <h3 style={{marginLeft: 20}}>Light safety 1</h3>
-      <p style={{marginLeft: 20}}>Material for the course Light Safety 1</p>
+          <h3 style={{marginLeft: 20}}>Testaa tietosi</h3>
+      <p style={{marginLeft: 20}}>Testaa tietosi kätevillä testeillä eri osioista.</p>
       </div>
       <div style={{flex: 1}}>
-          <p style={{marginTop: '35%', fontSize: 40}}><FaArrowAltCircleRight/></p>
-      </div>
-        </div>
-
-        <div style={{borderWidth: 1, borderColor: "gray", borderStyle: "solid", margin: 20, borderRadius: 10, display: "flex", flexDirection: "row", backgroundColor: 'lightgray', boxShadow: '0px 0px 10px gray'}}>
-          <div style={{flex: 3}}>
-          <h3 style={{marginLeft: 20}}>Event safety 1</h3>
-      <p style={{marginLeft: 20}}>Material for the course Event Safety 1</p>
-      </div>
-      <div style={{flex: 1}}>
-          <p style={{marginTop: '35%', fontSize: 40}}><FaArrowAltCircleRight/></p>
+          <p style={{marginTop: '35%', fontSize: 40, marginLeft: 30}} onClick={() => history.push('/quizzes')}><FaArrowAltCircleRight/></p>
       </div>
         </div>
         </div>
@@ -223,199 +222,8 @@ function About() {
           </div>
         </div>
       </div>
-      <div style={{ width: "100%" }}>
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgrey",
-            borderStyle: "solid",
-            margin: "10px 40px 10px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>1. Työskentele turvallisesti</h3>
-          </div>
-        </div>
 
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgray",
-            borderStyle: "solid",
-            margin: "10px 40px 10px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>
-              2. Luo turvallinen ja ympäristöystävällinen työpaikka
-            </h3>
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgray",
-            borderStyle: "solid",
-            margin: "10px 40px 10px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>3. Työskentele ergonomisesti</h3>
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgray",
-            borderStyle: "solid",
-            margin: "10px 40px 10px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>4. Käytä henkilösuojaimia</h3>
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgrey",
-            borderStyle: "solid",
-            margin: "10px 40px 10px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>
-              5. Varmista paloturvallisuus esitysympäristössä
-            </h3>
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgrey",
-            borderStyle: "solid",
-            margin: "10px 40px 10px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>
-              6. Työskentele korkealla turvallisesti
-            </h3>
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgrey",
-            borderStyle: "solid",
-            margin: "10px 40px 10px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>
-              7. Käytä esitystekniikan tilapäissähköä turvallisesti
-            </h3>
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgrey",
-            borderStyle: "solid",
-            margin: "10px 40px 10px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>8. Käytä tuokaluja turvallisesti</h3>
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgrey",
-            borderStyle: "solid",
-            margin: "10px 40px 10px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>
-              9. Työskentele turvallisesti kemikaalien kanssa
-            </h3>
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "lightgrey",
-            borderStyle: "solid",
-            margin: "10px 40px 100px 40px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "white",
-            boxShadow: "0px 0px 10px gray",
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>
-              10. Pystytä ja ripusta esitystekniikkaa turvallisesti
-            </h3>
-          </div>
-        </div>
-      </div>
+<ETTEmaterial />
     </div>
   );
 }
@@ -446,6 +254,7 @@ function Saved() {
   
   <h3>Tallennetut kurssit</h3>
   <p>Lista firebasesta kirjautuneen käyttäjän tallennetuista kursseista.</p></div>;
+  <SavedMaterialList />
 
 }
 
@@ -457,7 +266,8 @@ function Profile() {
   <h4>testi.user@email.com</h4>
   <h4>Other info</h4>
   
-  <h2>Suoritetut testit</h2></div>);
+  <h2>Suoritetut testit</h2>
+  <SavedMaterialList/></div>);
   
 }
 
