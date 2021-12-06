@@ -1,0 +1,65 @@
+.quizzBox {
+  border-width: 1px;
+  border-color: #cac4ce;
+  border-style: solid;
+  margin: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: #f7ece1;
+  box-shadow: 0px 0px 10px grey;
+  height: 110px;
+}
+
+.quizzStartBox {
+    height: 300px;
+    width: 70%;
+    position: absolute;
+    left: 15%;
+    top: 20%;
+    background-color: white;
+    border-width: 3px;
+    border-color: #cac4ce;
+    border-radius: 20px;
+    opacity: 1;
+}
+
+.backButton {
+    margin: 10px;
+    background-color: white;
+    border-width: 3px;
+    border-color: #cac4ce;
+    border-radius: 10px;
+    height: 50px;
+    font-size: 20px;
+    width: "35%";
+    margin-left: 10%;
+    float: left;
+    opacity: 1;
+}
+
+.startButton {
+    margin: 10px;
+    background-color: white;
+    border-width: 3px;
+    border-color: #5638D4;
+    border-radius: 10px;
+    height: 50px;
+    font-size: 20px;
+    width: "35%";
+    margin-left: 10%;
+    float: left;
+    opacity: 1;
+}
+
+.quizzHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.answersContainer {
+    display: flex;
+    flex-direction: column;
+}
+

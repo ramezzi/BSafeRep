@@ -16,13 +16,13 @@ nav {
   height: 2.7em;
   float: none;
   position: fixed;
-  bottom: 1px;
+  bottom: 0px;
   margin: 0px;
   left: 0px;
   background-color: 'white';
 }
 
-ul {
+nav ul {
     margin: 0px;
     height: 2.7em;
     display: flex;
@@ -32,7 +32,7 @@ ul {
     padding-left: 0px;
 }
 
-li {
+nav li {
   display: inline-block;
   font-weight: bold;
   font-size: 1.8em;
@@ -41,7 +41,7 @@ li {
   color: black;
 }
 
-li a {
+nav li a {
   display: inline-block;
   font-weight: bold;
   background-color: white;
@@ -93,7 +93,8 @@ li a {
     border-style: solid;
     border-radius: 10px;
     background-color: lightgray;
-    margin: 0.2em;
+    margin: 1em;
+    
 }
 
 .frontpageBox div{

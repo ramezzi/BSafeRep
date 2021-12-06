@@ -1,5 +1,11 @@
 //import GameStatsStyle from './gamestats.css';
-import { FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
+import {
+  FaArrowAltCircleRight,
+  FaSearch,
+  FaBookmark,
+  FaBook,
+} from "react-icons/fa";
+import "../styles/quizzes.css"
 import SearchComponent from "./SearchComponent";
 import Stageimage from "../images/stageimage.jpg";
 import { useHistory } from "react-router";
@@ -54,25 +60,13 @@ function QuizzesListning() {
 
       {quizzess.map((item) => {
         return (
-          <div
-            style={{
-              borderWidth: 1,
-              borderColor: "grey",
-              borderStyle: "solid",
-              margin: 20,
-              borderRadius: 10,
-              display: "flex",
-              flexDirection: "row",
-              backgroundColor: "lightgray",
-              boxShadow: "0px 0px 10px gray",
-              height: 110,
-            }}
+          <div class="quizzBox"
             onClick={() =>
               history.push({ pathname: "/quizzstart", state: item })
             }
           >
             <div style={{ flex: 5 }}>
-              <h3 style={{ marginLeft: 20 }}>{item.name}</h3>
+              <h3>{item.name}</h3>
               <p style={{ marginLeft: 20 }}>{item.description}</p>
             </div>
             <div style={{ flex: 1 }}>
@@ -91,6 +85,21 @@ function QuizzesListning() {
                     history.push({ pathname: "/quizzstart", state: item })
                   }
                 />
+              </p>
+            </div>
+            <div style={{ flex: 1 }}>
+              <p
+                style={{
+                  marginTop: "40%",
+                  fontSize: 40,
+                  zIndex: 2,
+                  marginTop: 30,
+                  marginLeft: 0,
+                  color: "black",
+                  float: "left",
+                }}
+              >
+                <FaBookmark onClick={() => console.log("tallenna itemi")} />
               </p>
             </div>
           </div>
