@@ -4,6 +4,7 @@ import {  FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
 import { useHistory } from "react-router";
 import Firesafety from '../images/firesafety.jpg';
 import QuizzComponent from "./QuizzComponent";
+import "../styles/quizzes.css"
 
 const quizzdata = [{
   "id": 1,
@@ -78,94 +79,59 @@ function QuizzExample( {navigation, quizz}) {
               left: 0,
               height: "100%",
               width: "100%",
-              backgroundColor: "white",
-              opacity: "0.95",
+              backgroundColor: "#f7ece1",
+              opacity: "1",
             }}
           >
-            <div
-              style={{
-                height: 250,
-                width: "70%",
-                position: "absolute",
-                left: "15%",
-                top: "20%",
-                backgroundColor: "lightgray",
-                opacity: 1,
-              }}
-            >
-              <h2>Hei!</h2>
-              <p style={{textAlign: 'center'}}>Tervetuloa aloittamaan testiä {quizz.name}</p>{" "}
-              <p style={{textAlign: 'center'}}>
+            <div class="quizzStartBox">
+              <h3 style={{ textAlign: "center" }}>{quizz.name}</h3>{" "}
+              <p style={{ textAlign: "center" }}>
                 Kun olet valmis suorittamaan kokeen klikkaa allaolevaa
                 painiketta aloittaaksesi. Onnea!
               </p>
               <button
-                onClick={() => history.push('./quizzes')}
-                style={{
-                  margin: 10,
-                  background: "white",
-                  borderWidth: 1,
-                  borderColor: "gray",
-                  borderRadius: 10,
-                  height: 50,
-                  boxShadow: "0px 0px 5px lightgray",
-                  fontSize: 20,
-                  width: "35%",
-                  marginLeft: "10%",
-                  float: 'left'
-                }}
+                class="backButton"
+                onClick={() => history.push("./quizzes")}
               >
-                PERUUTA
+                Peruuta
               </button>
               <button
+                class="startButton"
                 onClick={() => setIsQuizzStarted(true)}
-                style={{
-                  margin: 10,
-                  background: "#d8b9ff",
-                  borderWidth: 1,
-                  borderColor: "gray",
-                  borderRadius: 10,
-                  height: 50,
-                  boxShadow: "0px 0px 5px lightgray",
-                  fontSize: 20,
-                  width: "35%",
-                  marginLeft: "10%",
-                  float: 'left'
-                }}
               >
-                ALOITA
+                Aloita testi
               </button>
             </div>
           </div>
         )}
-        <button
-          onClick={() => history.push("/quizzes")}
-          style={{
-            margin: 10,
-            background: "transparent",
-            borderWidth: 0,
-            fontSize: 20,
-          }}
-        >
-          BACK
-        </button>
-
-        <h2>{quizz.name} </h2>
-
+        <div class="quizzHeader">
+          <h2>{quizz.name} </h2>
+          <button
+            onClick={() => history.push("/quizzes")}
+            style={{
+              margin: 10,
+              borderWidth: 3,
+              borderColor: "#cac4ce",
+              borderRadius: 15,
+              fontSize: 20,
+              boxShadow: 0,
+            }}
+          >
+            Poistu
+          </button>
+        </div>
         <div
           style={{
             borderWidth: 1,
             borderStyle: "solid",
             height: 550,
-            margin: 20,
+            margin: 0,
             borderRadius: 10,
-            borderColor: "lightgray",
+            borderColor: "#f7ece1",
           }}
         >
-         <QuizzComponent quizzdata={quizzWeGot} navigation={navigation} />
+          <QuizzComponent quizzdata={quizzWeGot} navigation={navigation} />
         </div>
-
-      
       </div>
     );
   }
