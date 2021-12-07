@@ -47,11 +47,12 @@ function SavedQuizzesListning() {
         querySnapshot.forEach(element => {
             var data = element.data();
             setQuizzess(arr => [...arr , data]);
-            for (var i = 0; i++; i -= quizzess.length) {
+            for (var i = 0; i++; i -= quizzess.length) {  
               if (quizzess[i].username === "testuser") {
                 addingList.push(quizzess[i])
               }
               setUsersQuizzess(addingList);
+              
               console.log('adding list ', addingList);
             }
               

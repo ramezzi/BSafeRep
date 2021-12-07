@@ -9,6 +9,7 @@ function ETTEmaterial() {
 
 const [firstpartShown, setIsFirstPartShown] = useState(false);
 const [tapaturmateoriaChecked, setIsTapaturmaTeoriaChecked] = useState(false);
+const [viisiAskeltaChecked, setIsViisiAskeltaChecked] = useState(false);
   const [quizzess, setQuizzess] = useState([]);
 
     var isQuizzSelected = false
@@ -30,6 +31,7 @@ const [tapaturmateoriaChecked, setIsTapaturmaTeoriaChecked] = useState(false);
         setIsTapaturmaTeoriaChecked(true)
       }
     }
+    
 
     useEffect(() => {
       setQuizzess([]);
@@ -214,7 +216,7 @@ Psykososiaaliset riskit ovat psyykkiseen ja fyysiseen terveyteen liittyviä risk
 
 Useimmilla työpaikoilla on toimintaohje seksuaalista häirintää, asiatonta käytöstä, kiusaamista ja muita vastaavia tilanteita varten. Ongelmien esiin ottaminen ajoissa voi auttaa minimoimaan psykososiaalisten riskien seurauksia. </p></div> : <div></div>}
         </div>
-        <div style={{borderColor: 'grey', borderStyle: 'solid', borderWidth: 1, height: 100, margin: 10, borderRadius: 10}}>
+        <div style={{borderColor: 'grey', borderStyle: 'solid', borderWidth: 1, height: 100, margin: 10, borderRadius: 10, backgroundColor: 'white'}}>
           <h2>1.2 Viisi askelta riskien vähentämiseen </h2>
         </div>
         </div>
