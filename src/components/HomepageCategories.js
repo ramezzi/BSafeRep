@@ -1,5 +1,5 @@
 //import GameStatsStyle from './gamestats.css';
-import {  FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
+import {  GrFormNext, FaSearch } from "react-icons/fa";
 import "../styles/categories.css";
 
 const data =  [

@@ -49,9 +49,11 @@ nav li a {
   padding: 0.2;
 }
 
+
 .bigHeader{
     font-family: 'Archivo Black', sans-serif;
     color: #5638D4;
+    padding-left: 0.5em;
 }
 
 .smallHeader{
@@ -62,19 +64,13 @@ nav li a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: white;
+    box-shadow: 0px 0px 10px lightgray;
+    border-bottom: #cac4ce;
 }
 
-.header input {
-    border-width: 1;
-    border-color: grey;
-    border-style: solid;
-    margin: 20px 0px 0px 0px;
-    border-radius: 10px;
-    background-color: lightgray;
-    box-shadow: 0px 0px 10px grey;
-    width: 10em;
-    height: 2em;
-    padding: 0.5em;
+.header h1 {
+    padding-left: 1em;
 }
 
 .homeContainer{
@@ -89,7 +85,7 @@ nav li a {
 
 .frontpageBox{
     border-width: 1;
-    border-color: gray;
+    border-color: #cac4ce;
     border-style: solid;
     border-radius: 10px;
     background-color: lightgray;

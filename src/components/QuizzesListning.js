@@ -1,10 +1,10 @@
 //import GameStatsStyle from './gamestats.css';
 import {
-  FaArrowAltCircleRight,
   FaSearch,
   FaBookmark,
   FaBook,
 } from "react-icons/fa";
+import { GrFormNext } from "react-icons/gr";
 import "../styles/quizzes.css"
 import SearchComponent from "./SearchComponent";
 import Stageimage from "../images/stageimage.jpg";
@@ -56,8 +56,6 @@ function QuizzesListning() {
 
   return (
     <div>
-      <SearchComponent />
-
       {quizzess.map((item) => {
         return (
           <div class="quizzBox"
@@ -80,7 +78,7 @@ function QuizzesListning() {
                   color: "#6603fc",
                 }}
               >
-                <FaArrowAltCircleRight
+                <GrFormNext
                   onClick={() =>
                     history.push({ pathname: "/quizzstart", state: item })
                   }

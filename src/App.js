@@ -9,13 +9,14 @@ import {
   FaHome,
   FaBook,
   FaQuestion,
-  FaHeart,
-  FaPersonBooth,
   FaPuzzlePiece,
-  FaArrowAltCircleRight,
   FaUser,
+  FaCheckCircle,
+  FaBookmark,
 } from "react-icons/fa";
-import { useHistory, useLocation } from "react-router";
+import { GrFormNext, GrRotateLeft } from "react-icons/gr";
+import { MdMenuBook } from "react-icons/md";
+import { useHistory, useLocation, withRouter } from "react-router";
 import QuizzExample from "./components/QuizzExample";
 import SavedQuizzesListning from "./components/savedQuizzeslist";
 import LoginComponent from "./components/LoginComponent";
@@ -78,6 +79,7 @@ function App() {
         <div>
           <nav style={{ marginLeft: 0, paddingLeft: 0 }}>
             <ul
+              class="navbar-nav"
               style={{
                 backgroundColor: "white",
                 boxShadow: "0px 0px 10px gray",
@@ -100,7 +102,7 @@ function App() {
               </li>
               <li>
                 <Link to="/saved">
-                  <FaHeart />
+                  <FaBookmark />
                 </Link>
               </li>
               <li>
@@ -195,73 +197,103 @@ function App() {
 function Home() {
   const history = useHistory();
   return (
-    <div class="homeContainer">
+    <div>
       <div class="header">
         <h1 class="bigHeader">BSafe</h1>
       </div>
-      <HomepageCategories />
-      <div style={{ width: "100%" }}>
-        <h3 class="smallHeader">Aloita tästä</h3>
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "grey",
-            borderStyle: "solid",
-            margin: 20,
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "lightgray",
-            boxShadow: "0px 0px 10px gray",
-            height: 200,
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>
-              ETTE-materiaali kätevästi taskussasi
-            </h3>
-            <p style={{ marginLeft: 20 }}>
-              Tutustu ja opiskele ETTE-materiaalia helposti ja kätevästi
-              missä tahansa.
-            </p>
+      <div class="homeContainer">
+        <div style={{ width: "100%" }}>
+          <h3 class="smallHeader" style={{ marginTop: "2em" }}>
+            Tervetuloa! Aloita tästä
+          </h3>
+          <div
+            style={{
+              borderWidth: 1,
+              borderColor: "grey",
+              borderStyle: "solid",
+              margin: 20,
+              borderRadius: 10,
+              display: "flex",
+              flexDirection: "row",
+              backgroundColor: "#5638D4",
+              boxShadow: "0px 0px 10px gray",
+              height: 200,
+            }}
+            onClick={() => history.push("/about")}
+          >
+            <div style={{ flex: 3 }}>
+              <h2
+                class="bigHeader"
+                style={{ marginLeft: 20, color: "white", left: 0, bottom: 0 }}
+              >
+                ETTE-materiaali kätevästi taskussasi
+              </h2>
+            </div>
+            <div style={{ flex: 1 }}>
+              <p
+                style={{
+                  marginTop: "60%",
+                  fontSize: 70,
+                  marginRight: 15,
+                  color: "white",
+                  transform: "rotate(20deg)",
+                }}
+              >
+                <MdMenuBook />
+              </p>
+            </div>
           </div>
-          <div style={{ flex: 1 }}>
-            <p
-              style={{ marginTop: "35%", fontSize: 40, marginLeft: 30 }}
-              onClick={() => history.push("/about")}
-            >
-              <FaArrowAltCircleRight />
-            </p>
-          </div>
-        </div>
 
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "grey",
-            borderStyle: "solid",
-            margin: 20,
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "lightgray",
-            boxShadow: "0px 0px 10px gray",
-            height: 200,
-          }}
-        >
-          <div style={{ flex: 3 }}>
-            <h3 style={{ marginLeft: 20 }}>Testaa tietosi</h3>
-            <p style={{ marginLeft: 20 }}>
-              Testaa tietosi kätevillä testeillä eri osioista.
-            </p>
-          </div>
-          <div style={{ flex: 1 }}>
-            <p
-              style={{ marginTop: "35%", fontSize: 40, marginLeft: 30 }}
-              onClick={() => history.push("/quizzes")}
-            >
-              <FaArrowAltCircleRight />
-            </p>
+          <h3 class="smallHeader">Testaa tietosi</h3>
+          <div
+            style={{
+              borderWidth: 1,
+              borderColor: "grey",
+              borderStyle: "solid",
+              margin: 20,
+              borderRadius: 10,
+              display: "flex",
+              flexDirection: "row",
+              backgroundColor: "#588B8B",
+              boxShadow: "0px 0px 10px gray",
+              height: 200,
+            }}
+            onClick={() => history.push("/quizzes")}
+          >
+            <div style={{ flex: 1 }}>
+              <p
+                style={{
+                  marginTop: "45%",
+                  fontSize: 70,
+                  marginLeft: 30,
+                  color: "white",
+                  transform: "rotate(-20deg)",
+                }}
+              >
+                <FaPuzzlePiece />
+              </p>
+            </div>
+            <div style={{ flex: 1 }}>
+              <p
+                style={{
+                  marginTop: "85%",
+                  fontSize: 50,
+                  marginLeft: 7,
+                  color: "white",
+                  transform: "rotate(10deg)",
+                }}
+              >
+                <FaCheckCircle />
+              </p>
+            </div>
+            <div style={{ flex: 3 }}>
+              <h2
+                class="bigHeader"
+                style={{ marginRight: 10, color: "white", textAlign: "right" }}
+              >
+                Testaa tietosi nopeilla testeillä eri osioista
+              </h2>
+            </div>
           </div>
         </div>
       </div>
@@ -271,44 +303,26 @@ function Home() {
 
 function About() {
   return (
-    <div class="homeContainer">
+    <div>
       <div class="header">
         <h1 class="bigHeader">Pocket ETTE</h1>
-        <div
-          style={{
-            borderWidth: 1,
-            borderColor: "grey",
-            borderStyle: "solid",
-            margin: "20px 0px 0px 0px",
-            borderRadius: 10,
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "lightgray",
-            boxShadow: "0px 0px 10px gray",
-            width: "40%",
-            height: 35,
-          }}
-        >
-          <div style={{ flex: 4 }}>
-            <p style={{ marginLeft: 20, marginTop: 5 }}>Search...</p>
-          </div>
-          <div style={{ flex: 1 }}>
-            <p style={{ marginTop: "20%", fontSize: 20 }}>
-              <FaSearch />
-            </p>
-          </div>
-        </div>
       </div>
-
-      <ETTEmaterial />
+      <div class="homeContainer">
+        <ETTEmaterial />
+      </div>
     </div>
   );
 }
 
 function Quizzes() {
   return (
-    <div class="homeContainer">
-      <QuizzesListning />
+    <div>
+      <div class="header">
+        <h1 class="bigHeader">Quizzes</h1>
+      </div>
+      <div class="homeContainer">
+        <QuizzesListning />
+      </div>
     </div>
   );
 }
@@ -327,19 +341,22 @@ function QuizzStartpage() {
 
 function Saved() {
   return (
-    <div class="homeContainer">
-      <h1 class="bigHeader">Bookmarks</h1>
+    <div>
+      <div class="header">
+        <h1 class="bigHeader">Bookmarks</h1>
+      </div>
+      <div class="homeContainer">
+        <h3 class="smallHeader">Tallennetut Quizzit</h3>
+        <p>
+          Lista firebasesta kirjautuneen kÃ¤yttÃ¤jÃ¤n tallennetuista quizzeista.
+        </p>
+        <SavedQuizzesListning />
 
-      <h3 class="smallHeader">Tallennetut Quizzit</h3>
-      <p>
-        Lista firebasesta kirjautuneen kÃ¤yttÃ¤jÃ¤n tallennetuista quizzeista.
-      </p>
-      <SavedQuizzesListning />
-
-      <h3 class="smallHeader">Tallennetut kurssit</h3>
-      <p>
-        Lista firebasesta kirjautuneen kÃ¤yttÃ¤jÃ¤n tallennetuista kursseista.
-      </p>
+        <h3 class="smallHeader">Tallennetut kurssit</h3>
+        <p>
+          Lista firebasesta kirjautuneen kÃ¤yttÃ¤jÃ¤n tallennetuista kursseista.
+        </p>
+      </div>
     </div>
   );
   <SavedMaterialList />;
@@ -347,15 +364,20 @@ function Saved() {
 
 function Profile() {
   return (
-    <div class="homeContainer">
-      <h1 class="bigHeader">Profile</h1>
-      <h4 style={{ marginTop: 60 }}>Tervetuloa, testiuser!</h4>
-      <h4>Trainee</h4>
-      <h4>testi.user@email.com</h4>
-      <h4>Other info</h4>
+    <div>
+      <div class="header">
+        <h1 class="bigHeader">Profile</h1>
+      </div>
+      <div class="homeContainer">
+        <h3 class="smallHeader">Info</h3>
+        <h4 style={{ paddingLeft: "0.7em" }}>Tervetuloa, testiuser!</h4>
+        <h4 style={{ paddingLeft: "0.7em" }}>Trainee</h4>
+        <h4 style={{ paddingLeft: "0.7em" }}>testi.user@email.com</h4>
+        <h4 style={{ paddingLeft: "0.7em" }}>Other info</h4>
 
-      <h3 class="smallHeader">Suoritetut testit</h3>
-      <SavedMaterialList />
+        <h3 class="smallHeader">Suoritetut testit</h3>
+        <SavedMaterialList />
+      </div>
     </div>
   );
 }

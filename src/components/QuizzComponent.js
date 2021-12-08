@@ -1,6 +1,7 @@
 //import GameStatsStyle from './gamestats.css';
 import { useState, useEffect } from "react";
-import { FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import { GrFormNext } from "react-icons/io";
 import { useHistory } from "react-router";
 import Firesafety from "../images/firesafety.jpg";
 import QuizzExample from "./QuizzExample";
@@ -25,9 +26,9 @@ function QuizzComponent({ quizzdata, navigation }) {
     quizzdata.questions[0].answers
   );
   const [totalCorrect, setTotalcorrect] = useState(0);
-  const [bgcolorf, setbgcolorf] = useState("lightgray");
-  const [bgcolors, setbgcolors] = useState("lightgray");
-  const [bgcolort, setbgcolort] = useState("lightgray");
+  const [bgcolorf, setbgcolorf] = useState("#f7ece1");
+  const [bgcolors, setbgcolors] = useState("#f7ece1");
+  const [bgcolort, setbgcolort] = useState("#f7ece1");
   var correctAnswers = totalCorrect;
   const currentDate = Date();
   const history = useHistory();
@@ -45,9 +46,9 @@ function QuizzComponent({ quizzdata, navigation }) {
   };
 
   const updateQuestion = () => {
-    setbgcolorf("lightgray");
-    setbgcolors("lightgray");
-    setbgcolort("lightgray");
+    setbgcolorf("#f7ece1");
+    setbgcolors("#f7ece1");
+    setbgcolort("#f7ece1");
     console.log("we updating");
     if (currentCorrect === currentusersAnswer) {
       correctAnswers = correctAnswers + 1;
@@ -90,21 +91,21 @@ function QuizzComponent({ quizzdata, navigation }) {
   const selectFirst = () => {
     setCurrentUsersAnswer(1);
     setbgcolorf("#6603fc");
-    setbgcolors("lightgray");
-    setbgcolort("lightgray");
+    setbgcolors("#f7ece1");
+    setbgcolort("#f7ece1");
   };
 
   const selectSecond = () => {
     setCurrentUsersAnswer(2);
-    setbgcolorf("lightgray");
+    setbgcolorf("#f7ece1");
     setbgcolors("#6603fc");
-    setbgcolort("lightgray");
+    setbgcolort("#f7ece1");
   };
 
   const selectThird = () => {
     setCurrentUsersAnswer(3);
-    setbgcolorf("lightgray");
-    setbgcolors("lightgray");
+    setbgcolorf("#f7ece1");
+    setbgcolors("#f7ece1");
     setbgcolort("#6603fc");
   };
 
@@ -166,7 +167,7 @@ function QuizzComponent({ quizzdata, navigation }) {
                 margin: 10,
                 backgroundColor: bgcolorf,
                 borderWidth: 3,
-                borderColor: "gray",
+                borderColor: "#cac4ce",
                 borderRadius: 10,
                 height: 50,
                 boxShadow: "0px 0px 10px lightgray",
@@ -183,7 +184,7 @@ function QuizzComponent({ quizzdata, navigation }) {
                 margin: 10,
                 background: bgcolors,
                 borderWidth: 3,
-                borderColor: "gray",
+                borderColor: "#cac4ce",
                 borderRadius: 10,
                 height: 50,
                 boxShadow: "0px 0px 10px lightgray",
@@ -200,7 +201,7 @@ function QuizzComponent({ quizzdata, navigation }) {
                 margin: 10,
                 background: bgcolort,
                 borderWidth: 3,
-                borderColor: "gray",
+                borderColor: "#cac4ce",
                 borderRadius: 10,
                 height: 50,
                 boxShadow: "0px 0px 10px lightgray",
@@ -233,9 +234,9 @@ function QuizzComponent({ quizzdata, navigation }) {
               onClick={() => checkInfoStatus()}
               style={{
                 margin: 10,
-                background: "lightgray",
+                background: "#f7ece1",
                 borderWidth: 3,
-                borderColor: "gray",
+                borderColor: "#cac4ce",
                 borderRadius: 10,
                 height: 50,
                 boxShadow: "0px 0px 5px lightgray",
@@ -250,9 +251,9 @@ function QuizzComponent({ quizzdata, navigation }) {
               onClick={() => updateQuestion()}
               style={{
                 margin: 10,
-                background: "#d8b9ff",
+                background: "#f7ece1",
                 borderWidth: 3,
-                borderColor: "gray",
+                borderColor: "#5638D4",
                 borderRadius: 10,
                 height: 50,
                 boxShadow: "0px 0px 5px lightgray",

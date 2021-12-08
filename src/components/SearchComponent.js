@@ -1,5 +1,5 @@
 //import GameStatsStyle from './gamestats.css';
-import {  FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
+import {  GrFormNext, FaSearch } from "react-icons/fa";
 import "../styles/app.css";
 
 const data =  [
@@ -18,8 +18,16 @@ const data =  [
     var isQuizzSelected = false
 
 function SearchComponent() {
-
   
+  return (
+      <div class="quizzTopNav">
+        <div class="header">
+          <h1 class="bigHeader">Quizzes</h1>
+        </div>
+      </div>
+    );
+
+  /*poistin hakupalkin väliaikasesti
     return (
       <div class="quizzTopNav">
         <div class="header">
@@ -53,6 +61,7 @@ function SearchComponent() {
           </div>
         </div>
       </div>
-    );
+    );*/
   }
+
   export default SearchComponent;

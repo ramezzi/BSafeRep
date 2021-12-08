@@ -1,5 +1,5 @@
 //import GameStatsStyle from './gamestats.css';
-import {  FaArrowAltCircleRight, FaSearch } from "react-icons/fa";
+import {  GrFormNext, FaSearch } from "react-icons/fa";
 import SearchComponent from "./SearchComponent";
 import Stageimage from '../images/stageimage.jpg'
 import { useHistory } from "react-router";
