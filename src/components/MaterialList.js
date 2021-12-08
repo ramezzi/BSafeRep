@@ -128,7 +128,7 @@ function SavedMaterialList() {
               flexDirection: "row",
               backgroundColor: "#f7ece1",
               boxShadow: "0px 0px 10px gray",
-              height: 110,
+              height: "auto",
             }}
             onClick={() =>
               history.push({ pathname: "/quizzstart", state: item })

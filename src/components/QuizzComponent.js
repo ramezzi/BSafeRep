@@ -221,7 +221,8 @@ function QuizzComponent({ quizzdata, navigation }) {
                 borderWidth: 3,
                 borderColor: "#cac4ce",
                 borderRadius: 10,
-                height: 50,
+                height: "auto",
+                padding: "0.2em",
                 boxShadow: "0px 0px 10px lightgray",
                 fontSize: 18,
                 width: "auto",
@@ -238,10 +239,11 @@ function QuizzComponent({ quizzdata, navigation }) {
                 borderWidth: 3,
                 borderColor: "#cac4ce",
                 borderRadius: 10,
-                height: 50,
+                height: "auto",
                 boxShadow: "0px 0px 10px lightgray",
                 fontSize: 18,
                 width: "auto",
+                padding: "0.2em"
               }}
             >
               {currentAnswers[1]}
@@ -255,7 +257,8 @@ function QuizzComponent({ quizzdata, navigation }) {
                 borderWidth: 3,
                 borderColor: "#cac4ce",
                 borderRadius: 10,
-                height: 50,
+                height: "auto",
+                padding: "0.2em",
                 boxShadow: "0px 0px 10px lightgray",
                 fontSize: 18,
                 width: "auto",

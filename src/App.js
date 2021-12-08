@@ -13,7 +13,7 @@ import {
   FaUser,
   FaCheckCircle,
   FaBookmark,
-  FaHeart
+  FaHeart,
 } from "react-icons/fa";
 import { GrFormNext, GrRotateLeft } from "react-icons/gr";
 import { MdMenuBook } from "react-icons/md";
@@ -48,76 +48,81 @@ function App() {
   };
 
   const checkLogin = () => {
-    const currentUser = localStorage.getItem('user');
+    const currentUser = localStorage.getItem("user");
     if (currentUser === null) {
-      setIsLoggenIn(false)
+      setIsLoggenIn(false);
     } else {
-      setIsLoggenIn(true)
+      setIsLoggenIn(true);
     }
-  }
-
-  const logOut = () => {
-    setIsLoggenIn(false)
-    firebase.auth().signOut().then(() => {
-      // Sign-out successful.
-    }).catch((error) => {
-      // An error happened.
-    });
-    localStorage.removeItem('user')
-    window.location.refresh(true)
-  }
-
-  const register = () => {
-
-    setIsLoggenIn(true);
-    firebase.auth().createUserWithEmailAndPassword(formState.username, formState.password)
-  .then((userCredential) => {
-    // Signed in 
-    var user = userCredential.user;
-    localStorage.setItem('user', user);
-    // ...
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ..
-  });
-
-  }
-
-  const login = () => {
-    console.log('logging in')
-    firebase.auth().signInWithEmailAndPassword(formState.username, formState.password)
-  .then((userCredential) => {
-    // Signed in
-    var user = userCredential.user;
-    localStorage.setItem('user', user);
-    setIsLoggenIn(true);
-  //  CurrentUserProvider.setCurrentUser(user)
-    
-    // ...
-
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        var uid = user.uid;
-        console.log(user)
-        setEmail(user.email)
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorMessage)
-  });
   };
 
+  const logOut = () => {
+    setIsLoggenIn(false);
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+    localStorage.removeItem("user");
+    window.location.refresh(true);
+  };
+
+  const register = () => {
+    setIsLoggenIn(true);
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(formState.username, formState.password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        localStorage.setItem("user", user);
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ..
+      });
+  };
+
+  const login = () => {
+    console.log("logging in");
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(formState.username, formState.password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        localStorage.setItem("user", user);
+        setIsLoggenIn(true);
+        //  CurrentUserProvider.setCurrentUser(user)
+
+        // ...
+
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            var uid = user.uid;
+            console.log(user);
+            setEmail(user.email);
+            // ...
+          } else {
+            // User is signed out
+            // ...
+          }
+        });
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
 
   const [formState, setFormState] = useState({
     login: true,
@@ -150,7 +155,7 @@ function App() {
               </li>
               <li>
                 <Link to="/quizzes">
-                  <FaPuzzlePiece style={{ color: "#6603fc" }} />
+                  <FaPuzzlePiece />
                 </Link>
               </li>
               <li>
@@ -186,143 +191,188 @@ function App() {
         </div>
       ) : (
         <div>
-          {registered ? ( <div>
-          <h1 style={{ color: "#6603fc", textAlign: "center" }}>BSafe</h1>
-          <h2>Login</h2>
+          {registered ? (
+            <div>
+              <div class="header">
+                <h1 class="bigHeader">BSafe</h1>
+              </div>
+              <div class="homeContainer">
+                <h2 class="smallHeader" style={{ textAlign: "center", marginTop: "1.6em" }}>
+                  Register
+                </h2>
+                <div
+                  style={{
+                    height: "7em",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <h5>Email</h5>
+                  <input
+                    style={{ width: "70%", marginLeft: "15%" }}
+                    value={formState.username}
+                    onChange={(e) =>
+                      setFormState({
+                        ...formState,
+                        username: e.target.value,
+                      })
+                    }
+                    type="text"
+                    placeholder="Your email"
+                  />
+                  <h5>Password</h5>
+                  <input
+                    style={{ width: "70%", marginLeft: "15%" }}
+                    value={formState.password}
+                    type="password"
+                    onChange={(e) =>
+                      setFormState({
+                        ...formState,
+                        password: e.target.value,
+                      })
+                    }
+                    type="text"
+                    placeholder="Your password"
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "row" }}>
+                  <input
+                    style={{ marginLeft: "15%", marginTop: 30 }}
+                    type="checkbox"
+                    defaultChecked={checked}
+                    onChange={() => setChecked(!checked)}
+                  />
 
-          <input
-            style={{ width: "70%", marginLeft: "15%" }}
-            value={formState.username}
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                username: e.target.value,
-              })
-            }
-            type="text"
-            placeholder="Your username"
-          />
+                  <p style={{ 
+                      fontSize: 14,
+                      marginTop: 30,
+                      marginLeft: "0.2em",
+                      width: "70%",}}>
+                    Olen hyväksynyt tietosuojaevästeet tms. mitä ikinä tähän
+                    laitetaankaan.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <button class="firstButton" onClick={() => register()}>
+                    Rekisteröidy
+                  </button>
+                  <button
+                    class="secondButton"
+                    onClick={() => setRegistered(false)}
+                  >
+                    Löytyykö jo käyttäjä? Kirjaudu sisään
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div class="header">
+                <h1 class="bigHeader">BSafe</h1>
+              </div>
+              <div
+                class="homeContainer"
+                style={{ display: "flex", flexDirection: "column" }}
+              >
+                <h2 class="smallHeader" style={{ textAlign: "center" }}>
+                  Login
+                </h2>
+                <div
+                  style={{
+                    height: "7em",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <h5>Email</h5>
+                  <input
+                    style={{ width: "70%", marginLeft: "15%" }}
+                    value={formState.username}
+                    onChange={(e) =>
+                      setFormState({
+                        ...formState,
+                        username: e.target.value,
+                      })
+                    }
+                    type="text"
+                    placeholder="Your email"
+                  />
+                  <h5>Password</h5>
+                  <input
+                    style={{ width: "70%", marginLeft: "15%" }}
+                    value={formState.password}
+                    type="password"
+                    onChange={(e) =>
+                      setFormState({
+                        ...formState,
+                        password: e.target.value,
+                      })
+                    }
+                    type="text"
+                    placeholder="Your password"
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "row" }}>
+                  <input
+                    style={{ marginLeft: "15%", marginTop: 30 }}
+                    type="checkbox"
+                    defaultChecked={checked}
+                    onChange={() => setChecked(!checked)}
+                  />
 
-          <input
-            style={{ width: "70%", marginLeft: "15%" }}
-            value={formState.password}
-            type="password"
-            onChange={(e) =>
-              setFormState({
-                ...formState,
-                password: e.target.value,
-              })
-            }
-            type="text"
-            placeholder="Your password"
-          />
-
-          <input
-            style={{ marginLeft: "15%", marginTop: 50 }}
-            type="checkbox"
-            defaultChecked={checked}
-            onChange={() => setChecked(!checked)}
-          />
-
-          <p style={{ fontSize: 14, marginLeft: "15%", width: "70%" }}>
-            Olen hyväksynyt tietosuojaevästeet tms. mitä ikinä tähän
-            laitetaankaan.
-          </p>
-
-          <button
-            style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%" }}
-            onClick={() => register()}
-          >
-            Rekisteröidy
-          </button>
-          <button
-            style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%", backgroundColor: 'grey' }}
-            onClick={() => setRegistered(false)}
-          >
-            Kirjaudu sisään
-          </button>
-        </div> ) : ( 
-        <div>
-        <h1 style={{ color: "#6603fc", textAlign: "center" }}>BSafe</h1>
-        <h2>Login</h2>
-
-        <input
-          style={{ width: "70%", marginLeft: "15%" }}
-          value={formState.username}
-          onChange={(e) =>
-            setFormState({
-              ...formState,
-              username: e.target.value,
-            })
-          }
-          type="text"
-          placeholder="Your username"
-        />
-
-        <input
-          style={{ width: "70%", marginLeft: "15%" }}
-          value={formState.password}
-          type="password"
-          onChange={(e) =>
-            setFormState({
-              ...formState,
-              password: e.target.value,
-            })
-          }
-          type="text"
-          placeholder="Your password"
-        />
-
-        <input
-          style={{ marginLeft: "15%", marginTop: 50 }}
-          type="checkbox"
-          defaultChecked={checked}
-          onChange={() => setChecked(!checked)}
-        />
-
-        <p style={{ fontSize: 14, marginLeft: "15%", width: "70%" }}>
-          Olen hyväksynyt tietosuojaevästeet tms. mitä ikinä tähän
-          laitetaankaan.
-        </p>
-
-        <button
-          style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%" }}
-          onClick={() => login()}
-        >
-          Kirjaudu
-        </button>
-        <button
-            style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%", backgroundColor: 'grey' }}
-            onClick={() => setRegistered(true)}
-          >
-            Rekisteröidy
-          </button>
-      </div>
-      ) }
-       </div> )}
+                  <p
+                    style={{
+                      fontSize: 14,
+                      marginTop: 30,
+                      marginLeft: "0.2em",
+                      width: "70%",
+                    }}
+                  >
+                    Olen hyväksynyt tietosuojaevästeet tms. mitä ikinä tähän
+                    laitetaankaan.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <button class="firstButton" onClick={() => login()}>
+                    Kirjaudu
+                  </button>
+                  <button
+                    class="secondButton"
+                    onClick={() => setRegistered(true)}
+                  >
+                    Ei vielä käyttäjää? Rekisteröidy
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </Router>
   );
 }
 
 function Home() {
 
-  const logOut = () => {
-    //setIsLoggenIn(false)
-    localStorage.removeItem('user')
-    window.location.reload()
-  }
-
   const history = useHistory();
   return (
     <div>
       <div class="header">
         <h1 class="bigHeader">BSafe</h1>
-        <button
-            style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%", backgroundColor: 'grey' }}
-            onClick={() => logOut()}
-          >
-            Kirjaudu Ulos
-          </button>
       </div>
       <div class="homeContainer">
         <div style={{ width: "100%" }}>
@@ -340,7 +390,7 @@ function Home() {
               flexDirection: "row",
               backgroundColor: "#5638D4",
               boxShadow: "0px 0px 10px gray",
-              height: 200,
+              height: "auto",
             }}
             onClick={() => history.push("/about")}
           >
@@ -379,7 +429,7 @@ function Home() {
               flexDirection: "row",
               backgroundColor: "#588B8B",
               boxShadow: "0px 0px 10px gray",
-              height: 200,
+              height: "auto",
             }}
             onClick={() => history.push("/quizzes")}
           >
@@ -486,14 +536,12 @@ function Saved() {
 }
 
 function Profile() {
-
   const [email, setEmail] = useState("");
-  const currentUser = localStorage.getItem('user');
-  console.log('is', currentUser)
+  const currentUser = localStorage.getItem("user");
+  console.log("is", currentUser);
 
   const login = () => {
-
-   /* console.log('logging in')
+    /* console.log('logging in')
     firebase.auth().signInWithEmailAndPassword(formState.username, formState.password)
   .then((userCredential) => {
     // Signed in
@@ -509,30 +557,41 @@ function Profile() {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         var uid = user.uid;
-        console.log(user)
-        setEmail(user.email)
+        console.log(user);
+        setEmail(user.email);
         // ...
       } else {
         // User is signed out
         // ...
       }
     });
- // })
- // .catch((error) => {
-  //  var errorCode = error.code;
-  //  var errorMessage = error.message;
-  //  console.log(errorMessage)
- // });
+    // })
+    // .catch((error) => {
+    //  var errorCode = error.code;
+    //  var errorMessage = error.message;
+    //  console.log(errorMessage)
+    // });
   };
 
   useEffect(() => {
-    login()
-  }, [])
+    login();
+  }, []);
   
+  const logOut = () => {
+    //setIsLoggenIn(false)
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
+
   return (
     <div>
       <div class="header">
         <h1 class="bigHeader">Profile</h1>
+        <button class="logoutButton"
+          onClick={() => logOut()}
+        >
+          Kirjaudu ulos
+        </button>
       </div>
       <div class="homeContainer">
         <h3 class="smallHeader">Info</h3>

@@ -1,3 +1,6 @@
+button {
+    font-family: 'DM Sans', sans-serif;
+}
 .quizzBox {
   border-width: 1px;
   border-color: #cac4ce;
@@ -8,7 +11,7 @@
   flex-direction: row;
   background-color: #f7ece1;
   box-shadow: 0px 0px 10px grey;
-  height: 110px;
+  height: auto;
 }
 
 .quizzStartBox {

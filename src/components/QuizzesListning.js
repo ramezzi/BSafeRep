@@ -64,8 +64,8 @@ function QuizzesListning() {
             }
           >
             <div style={{ flex: 5 }}>
-              <h3>{item.name}</h3>
-              <p style={{ marginLeft: 20 }}>{item.description}</p>
+              <h3 style={{marginBottom: 0}}>{item.name}</h3>
+              <p style={{ marginLeft: 20, marginTop: "0.2em" }}>{item.description}</p>
             </div>
             <div style={{ flex: 1 }}>
               <p
@@ -73,8 +73,9 @@ function QuizzesListning() {
                   marginTop: "40%",
                   fontSize: 40,
                   zIndex: 2,
-                  marginTop: 30,
+                  marginTop: 20,
                   marginLeft: 0,
+                  marginBottom: 0,
                   color: "#6603fc",
                 }}
               >
@@ -85,21 +86,7 @@ function QuizzesListning() {
                 />
               </p>
             </div>
-            <div style={{ flex: 1 }}>
-              <p
-                style={{
-                  marginTop: "40%",
-                  fontSize: 40,
-                  zIndex: 2,
-                  marginTop: 30,
-                  marginLeft: 0,
-                  color: "black",
-                  float: "left",
-                }}
-              >
-                <FaBookmark onClick={() => console.log("tallenna itemi")} />
-              </p>
-            </div>
+            
           </div>
         );
       })}

@@ -49,6 +49,54 @@ nav li a {
   padding: 0.2;
 }
 
+input {
+    height: 1.5em;
+    border: none;
+    border-bottom: 2px solid #cac4ce;
+}
+
+h5{
+    margin-left: 15%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.firstButton {
+    font-family: 'DM Sans', sans-serif;
+    width: 70%;
+    height: 3.2em;
+    margin: 5%;
+    border-color: #5638D4;
+    background-color: white;
+    border-radius: 15px;
+    border-width: 3px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.secondButton {
+    font-family: 'DM Sans', sans-serif;
+    width: auto;
+    height: 3.2em;
+    margin: 5%;
+    border-radius: 15px;
+    border-width: 3px;
+    background-color: white;
+    border-color: #f7ece1;
+    box-shadow: 0px 0px 4px gray;
+}
+
+.logoutButton{
+    font-family: 'DM Sans', sans-serif;
+    width: 8em;
+    height: 3em;
+    margin-top: 5%;
+    margin-right: 5%;
+    background-color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #cac4ce;
+    font-size: 1em;
+}
 
 .bigHeader{
     font-family: 'Archivo Black', sans-serif;

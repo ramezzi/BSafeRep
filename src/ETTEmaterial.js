@@ -1,44 +1,40 @@
 //import GameStatsStyle from './gamestats.css';
-import "./styles/material.css"
-import {
-  FaSearch,
-  FaBookmark,
-  FaBook,
-} from "react-icons/fa";
+import "./styles/material.css";
+import { FaSearch, FaBookmark, FaBook } from "react-icons/fa";
 import { GrFormNext, GrFormDown } from "react-icons/gr";
 import { useHistory } from "react-router";
 import { useState, useEffect } from "react";
 import { fireEvent } from "@testing-library/dom";
-import sign1 from './images/image002.png';
-import sign2 from './images/image003.png';
-import sign3 from './images/image004.png';
-import sign4 from './images/image005.png';
-import sign5 from './images/image006.png';
-import sign6 from './images/image007.png';
-import sign7 from './images/image008.png';
-import sign8 from './images/image009.png';
-import sign9 from './images/image010.png';
-import sign10 from './images/image011.png';
-import sign11 from './images/image012.png';
-import sign12 from './images/image013.png';
-import sign13 from './images/image014.png';
-import sign14 from './images/image015.png';
-import sign15 from './images/image016.png';
-import sign16 from './images/image017.png';
-import sign17 from './images/image018.png';
-import sign18 from './images/image019.png';
-import sign19 from './images/image020.png';
-import sign20 from './images/image021.png';
-import sign21 from './images/image022.png';
-import sign22 from './images/image023.png';
-import sign23 from './images/image024.png';
-import sign24 from './images/image025.png';
-import sign25 from './images/image026.png';
-import sign26 from './images/image027.png';
-import sign27 from './images/image028.png';
-import sign28 from './images/image029.png';
-import sign29 from './images/image030.png';
-import sign30 from './images/image031.png';
+import sign1 from "./images/image002.png";
+import sign2 from "./images/image003.png";
+import sign3 from "./images/image004.png";
+import sign4 from "./images/image005.png";
+import sign5 from "./images/image006.png";
+import sign6 from "./images/image007.png";
+import sign7 from "./images/image008.png";
+import sign8 from "./images/image009.png";
+import sign9 from "./images/image010.png";
+import sign10 from "./images/image011.png";
+import sign11 from "./images/image012.png";
+import sign12 from "./images/image013.png";
+import sign13 from "./images/image014.png";
+import sign14 from "./images/image015.png";
+import sign15 from "./images/image016.png";
+import sign16 from "./images/image017.png";
+import sign17 from "./images/image018.png";
+import sign18 from "./images/image019.png";
+import sign19 from "./images/image020.png";
+import sign20 from "./images/image021.png";
+import sign21 from "./images/image022.png";
+import sign22 from "./images/image023.png";
+import sign23 from "./images/image024.png";
+import sign24 from "./images/image025.png";
+import sign25 from "./images/image026.png";
+import sign26 from "./images/image027.png";
+import sign27 from "./images/image028.png";
+import sign28 from "./images/image029.png";
+import sign29 from "./images/image030.png";
+import sign30 from "./images/image031.png";
 
 //import firebase from 'firebase';
 
@@ -247,7 +243,6 @@ function ETTEmaterial() {
     }
   };
 
-
   const isChapterChecked = (booleanInQuestion) => {
     if (booleanInQuestion === true) {
       setChapterBoolean(booleanInQuestion, false);
@@ -257,7 +252,7 @@ function ETTEmaterial() {
   };
 
   const setChapterBoolean = (booleanInQuestion, bool) => {
-      booleanInQuestion = bool;
+    booleanInQuestion = bool;
   };
 
   useEffect(() => {
@@ -393,13 +388,12 @@ function ETTEmaterial() {
                   </p>
                   <b>Suhteet </b>
                   <p>
-                    Alla oleva kaavio osoittaa miten eri käsitteet suhtautuvat
-                    toisiinsa. Vaara, todennäköisyys ja seuraus muodostavat
-                    riskin. Riski saattaa aiheuttaa vaaratilanteen. Jos
-                    vaaratilanne päättyy huonosti, sattuu tapaturma, joka
-                    aiheuttaa vahinkoja. Tapaturmien välttämiseksi yritämme
-                    hallita riskitekijöitä, analysoimme riskit ja pidämme kirjaa
-                    läheltä piti -tilanteista.{" "}
+                    Vaara, todennäköisyys ja seuraus muodostavat riskin. Riski
+                    saattaa aiheuttaa vaaratilanteen. Jos vaaratilanne päättyy
+                    huonosti, sattuu tapaturma, joka aiheuttaa vahinkoja.
+                    Tapaturmien välttämiseksi yritämme hallita riskitekijöitä,
+                    analysoimme riskit ja pidämme kirjaa läheltä piti
+                    -tilanteista.{" "}
                   </p>
                   <b>Vaarallinen toiminta </b>
                   <p>
@@ -1072,7 +1066,8 @@ function ETTEmaterial() {
               backgroundColor: "#f7ece1",
               boxShadow: "0px 0px 10px gray",
               height: "auto",
-              maxHeight: "5em",
+              maxHeight: "6em",
+              marginBottom: 0,
             }}
             onClick={() => setIsFirstPartShown(true)}
           >
@@ -1086,6 +1081,7 @@ function ETTEmaterial() {
                   fontSize: 40,
                   zIndex: 2,
                   marginLeft: 0,
+                  marginBottom: "0.3em",
                   color: "#6603fc",
                 }}
               >
@@ -2935,7 +2931,7 @@ function ETTEmaterial() {
               backgroundColor: "#f7ece1",
               boxShadow: "0px 0px 10px gray",
               height: "auto",
-              maxHeight: "5em",
+              maxHeight: "6em",
             }}
             onClick={() => setIsThirdPartShown(true)}
           >
@@ -2949,6 +2945,7 @@ function ETTEmaterial() {
                   fontSize: 40,
                   zIndex: 2,
                   marginLeft: 0,
+                  marginBottom: "0.3em",
                   color: "#6603fc",
                 }}
               >
@@ -3000,7 +2997,7 @@ function ETTEmaterial() {
               backgroundColor: "#f7ece1",
               boxShadow: "0px 0px 10px gray",
               height: "auto",
-              maxHeight: "5em",
+              maxHeight: "6em",
             }}
             onClick={() => setIsFourthPartShown(true)}
           >
@@ -3014,6 +3011,7 @@ function ETTEmaterial() {
                   fontSize: 40,
                   zIndex: 2,
                   marginLeft: 0,
+                  marginBottom: "0.3em",
                   color: "#6603fc",
                 }}
               >
@@ -3271,7 +3269,7 @@ function ETTEmaterial() {
               backgroundColor: "#f7ece1",
               boxShadow: "0px 0px 10px gray",
               height: "auto",
-              maxHeight: "5em",
+              maxHeight: "6em",
             }}
             onClick={() => setIsEightPartShown(true)}
           >
@@ -3287,6 +3285,7 @@ function ETTEmaterial() {
                   fontSize: 40,
                   zIndex: 2,
                   marginLeft: 0,
+                  marginBottom: "0.3em",
                   color: "#6603fc",
                 }}
               >
@@ -3366,7 +3365,7 @@ function ETTEmaterial() {
       )}
       {tenthpartShown ? (
         <div>
-          <div class="materialBox">
+          <div class="materialBox" style={{ marginBottom: "60px" }}>
             <div style={{ display: "flex", flexDirection: "row" }}>
               <div style={{ flex: 5 }}>
                 <h2 style={{ marginLeft: 20 }}>
