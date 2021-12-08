@@ -131,9 +131,9 @@ function SavedMaterialList() {
             }
           >
             <div style={{ flex: 5 }}>
-              <h3 style={{ marginLeft: 20 }}>{item.quizzName}</h3>
-              <p style={{ marginLeft: 20, float: "left" }}>{item.username}</p>
-              <p style={{ marginLeft: 20, float: "left" }}>{item.date}</p>
+              <h3 style={{ marginLeft: 10, margin: 10 }}>{item.quizzName}</h3>
+              <p style={{  float: "left", margin: 0, marginLeft: 20, fontSize: 14}}>{item.username}</p>
+              <p style={{  float: "left", margin: 0, marginLeft: 20, fontSize: 14 }}>{item.date}</p>
             </div>
             <div style={{ flex: 1 }}>
               <p

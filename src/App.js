@@ -56,6 +56,12 @@ function App() {
     }
   }
 
+  const logOut = () => {
+    setIsLoggenIn(false)
+    localStorage.removeItem('user')
+    window.location.refresh(true)
+  }
+
   const register = () => {
 
     firebase.auth().createUserWithEmailAndPassword(formState.username, formState.password)
@@ -294,11 +300,24 @@ function App() {
 }
 
 function Home() {
+
+  const logOut = () => {
+    //setIsLoggenIn(false)
+    localStorage.removeItem('user')
+    window.location.reload()
+  }
+
   const history = useHistory();
   return (
     <div>
       <div class="header">
         <h1 class="bigHeader">BSafe</h1>
+        <button
+            style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%", backgroundColor: 'grey' }}
+            onClick={() => logOut()}
+          >
+            Kirjaudu Ulos
+          </button>
       </div>
       <div class="homeContainer">
         <div style={{ width: "100%" }}>
