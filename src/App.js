@@ -143,11 +143,6 @@ function App() {
                 </Link>
               </li>
               <li>
-                <Link to="/saved">
-                  <FaHeart />
-                </Link>
-              </li>
-              <li>
                 <Link to="/profile">
                   <FaUser />
                 </Link>
@@ -175,9 +170,6 @@ function App() {
             </Route>
             <Route path="/">
               <Home />
-            </Route>
-            <Route path="/login">
-              <Saved />
             </Route>
           </Switch>
         </div>
