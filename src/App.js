@@ -58,18 +58,23 @@ function App() {
 
   const logOut = () => {
     setIsLoggenIn(false)
+    firebase.auth().signOut().then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
     localStorage.removeItem('user')
     window.location.refresh(true)
   }
 
   const register = () => {
 
+    setIsLoggenIn(true);
     firebase.auth().createUserWithEmailAndPassword(formState.username, formState.password)
   .then((userCredential) => {
     // Signed in 
     var user = userCredential.user;
     localStorage.setItem('user', user);
-    setIsLoggenIn(true);
     // ...
   })
   .catch((error) => {

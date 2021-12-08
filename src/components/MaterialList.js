@@ -25,6 +25,7 @@ function SavedMaterialList() {
   const [email, setEmail] = useState("");
   const [quizzess, setQuizzess] = useState([]);
   const [usersQuizzess, setUsersQuizzess] = useState([]);
+  const [emailInfo, setEmailInfo] = useState('');
   var addingList = [];
 
   var isQuizzSelected = false;
@@ -49,8 +50,9 @@ function SavedMaterialList() {
          // User is signed in, see docs for a list of available properties
          // https://firebase.google.com/docs/reference/js/firebase.User
          var uid = user.uid;
-         console.log(user)
+         console.log('user', user)
          setEmail(user.email)
+         fetchQuizzes(user.email)
          // ...
        } else {
          // User is signed out
@@ -63,16 +65,18 @@ function SavedMaterialList() {
    //  var errorMessage = error.message;
    //  console.log(errorMessage)
   // });
+
    };
 
-  const fetchQuizzes = async () => {
+  const fetchQuizzes = async (useremail) => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
+        const currentUser = localStorage.getItem('user');
         var uid = user.uid;
         console.log(user)
-        setEmail(user.email)
+        setEmailInfo(user.email)
         // ...
       } else {
         // User is signed out
@@ -80,7 +84,7 @@ function SavedMaterialList() {
       }
     });
 
-    const response = db.collection("userResults")
+    const response = db.collection("userResults").where('userEmail', '==', useremail)
     const data = await response.get().then((querySnapshot) => {
       // Loop through the data and store
       // it in array to display
@@ -104,9 +108,9 @@ function SavedMaterialList() {
   };
 
   useEffect(() => {
-    login()
     setQuizzess([]);
-    fetchQuizzes();
+    login()
+   // fetchQuizzes();
   }, []);
 
   return (

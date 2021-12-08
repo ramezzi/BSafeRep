@@ -85,6 +85,22 @@ function QuizzComponent({ quizzdata, navigation }) {
     //in reality when all questions are looped quizzResultObject is pushed to firebase
     //and user is redirected to quizzfinish page where result is shown and user can continue using the app otherwise
     if (currentQuestion === quizzdata.questions.length - 1) {
+
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const currentUser = localStorage.getItem('user');
+          var uid = user.uid;
+          console.log(user)
+          setEmailInfo(user.email)
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+      
       setisReady(true);
       setShowing(quizzdata[0]);
       setimageurl(quizzdatanew.questions[0].image);
@@ -93,7 +109,7 @@ function QuizzComponent({ quizzdata, navigation }) {
 
       db.collection("userResults").add({
         userEmail: emailInfo,
-        correctAnswers: currentCorrect,
+        correctAnswers: currentCorrect+1,
         date: currentDate,
         username: emailInfo,
         quizzName: quizzdata.name
