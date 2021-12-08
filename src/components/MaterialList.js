@@ -6,6 +6,7 @@ import { useHistory } from "react-router";
 import { useState, useEffect } from "react";
 //import firebase from 'firebase';
 import { db } from "../firebaseConfig";
+import firebase from "firebase";
 
 const data = [
   {
@@ -21,6 +22,7 @@ const data = [
 ];
 
 function SavedMaterialList() {
+  const [email, setEmail] = useState("");
   const [quizzess, setQuizzess] = useState([]);
   const [usersQuizzess, setUsersQuizzess] = useState([]);
   var addingList = [];
@@ -29,14 +31,63 @@ function SavedMaterialList() {
 
   const history = useHistory();
 
+  const login = () => {
+
+    /* console.log('logging in')
+     firebase.auth().signInWithEmailAndPassword(formState.username, formState.password)
+   .then((userCredential) => {
+     // Signed in
+     var user = userCredential.user;
+     localStorage.setItem('user', user);
+     setIsLoggenIn(true);
+     CurrentUserProvider.setCurrentUser(user)
+     
+     // ...
+  */
+     firebase.auth().onAuthStateChanged((user) => {
+       if (user) {
+         // User is signed in, see docs for a list of available properties
+         // https://firebase.google.com/docs/reference/js/firebase.User
+         var uid = user.uid;
+         console.log(user)
+         setEmail(user.email)
+         // ...
+       } else {
+         // User is signed out
+         // ...
+       }
+     });
+  // })
+  // .catch((error) => {
+   //  var errorCode = error.code;
+   //  var errorMessage = error.message;
+   //  console.log(errorMessage)
+  // });
+   };
+
   const fetchQuizzes = async () => {
-    const response = db.collection("usersSavedQuizzes");
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        var uid = user.uid;
+        console.log(user)
+        setEmail(user.email)
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+
+    const response = db.collection("userResults")
     const data = await response.get().then((querySnapshot) => {
       // Loop through the data and store
       // it in array to display
       querySnapshot.forEach((element) => {
         var data = element.data();
         setQuizzess((arr) => [...arr, data]);
+        console.log('your tests', data)
         for (var i = 0; i++; i -= quizzess.length) {
           if (quizzess[i].username === "testuser") {
             addingList.push(quizzess[i]);
@@ -53,6 +104,7 @@ function SavedMaterialList() {
   };
 
   useEffect(() => {
+    login()
     setQuizzess([]);
     fetchQuizzes();
   }, []);

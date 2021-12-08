@@ -13,6 +13,7 @@ import {
   FaUser,
   FaCheckCircle,
   FaBookmark,
+  FaHeart
 } from "react-icons/fa";
 import { GrFormNext, GrRotateLeft } from "react-icons/gr";
 import { MdMenuBook } from "react-icons/md";
@@ -20,7 +21,7 @@ import { useHistory, useLocation, withRouter } from "react-router";
 import QuizzExample from "./components/QuizzExample";
 import SavedQuizzesListning from "./components/savedQuizzeslist";
 import LoginComponent from "./components/LoginComponent";
-import { useState } from "react/cjs/react.development";
+import { useState, useEffect } from "react/cjs/react.development";
 import { auth } from "./firebaseConfig";
 import "firebase/auth";
 import {
@@ -30,6 +31,7 @@ import {
 } from "firebase/auth";
 import ETTEmaterial from "./ETTEmaterial";
 import SavedMaterialList from "./components/MaterialList";
+import firebase from "firebase";
 
 function App() {
   const [isLoggedIn, setIsLoggenIn] = useState(false);
@@ -37,33 +39,74 @@ function App() {
   const [token, setToken] = useState();
   const [checked, setChecked] = useState(true);
   const [showError, setShowError] = useState(false);
+  const [registered, setRegistered] = useState(false);
+  const [email, setEmail] = useState("");
+  const emaill = "";
 
   const updateUserEmail = (value) => {
     // setUserEmail(value)
   };
 
-  const login = () => {
-    /* const autht = auth.getAuth();
-  const signin = auth.signInWithEmailAndPassword()
-  signin(auth, "testuser@emaill.com", "testpassword")
+  const checkLogin = () => {
+    const currentUser = localStorage.getItem('user');
+    if (currentUser === null) {
+      setIsLoggenIn(false)
+    } else {
+      setIsLoggenIn(true)
+    }
+  }
+
+  const register = () => {
+
+    firebase.auth().createUserWithEmailAndPassword(formState.username, formState.password)
   .then((userCredential) => {
     // Signed in 
-    const user = userCredential.user;
+    var user = userCredential.user;
+    localStorage.setItem('user', user);
+    setIsLoggenIn(true);
     // ...
   })
   .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ..
   });
 
- if (checked === false) {
+  }
 
-  setShowError(true)
- } else {
-  setIsLoggenIn(true);
- } */
+  const login = () => {
+    console.log('logging in')
+    firebase.auth().signInWithEmailAndPassword(formState.username, formState.password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    localStorage.setItem('user', user);
     setIsLoggenIn(true);
+  //  CurrentUserProvider.setCurrentUser(user)
+    
+    // ...
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        var uid = user.uid;
+        console.log(user)
+        setEmail(user.email)
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage)
+  });
   };
+
 
   const [formState, setFormState] = useState({
     login: true,
@@ -79,7 +122,6 @@ function App() {
         <div>
           <nav style={{ marginLeft: 0, paddingLeft: 0 }}>
             <ul
-              class="navbar-nav"
               style={{
                 backgroundColor: "white",
                 boxShadow: "0px 0px 10px gray",
@@ -102,7 +144,7 @@ function App() {
               </li>
               <li>
                 <Link to="/saved">
-                  <FaBookmark />
+                  <FaHeart />
                 </Link>
               </li>
               <li>
@@ -141,6 +183,7 @@ function App() {
         </div>
       ) : (
         <div>
+          {registered ? ( <div>
           <h1 style={{ color: "#6603fc", textAlign: "center" }}>BSafe</h1>
           <h2>Login</h2>
 
@@ -160,6 +203,7 @@ function App() {
           <input
             style={{ width: "70%", marginLeft: "15%" }}
             value={formState.password}
+            type="password"
             onChange={(e) =>
               setFormState({
                 ...formState,
@@ -184,12 +228,75 @@ function App() {
 
           <button
             style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%" }}
-            onClick={() => login()}
+            onClick={() => register()}
           >
-            Kirjaudu
+            Rekisteröidy
           </button>
-        </div>
-      )}
+          <button
+            style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%", backgroundColor: 'grey' }}
+            onClick={() => setRegistered(false)}
+          >
+            Kirjaudu sisään
+          </button>
+        </div> ) : ( 
+        <div>
+        <h1 style={{ color: "#6603fc", textAlign: "center" }}>BSafe</h1>
+        <h2>Login</h2>
+
+        <input
+          style={{ width: "70%", marginLeft: "15%" }}
+          value={formState.username}
+          onChange={(e) =>
+            setFormState({
+              ...formState,
+              username: e.target.value,
+            })
+          }
+          type="text"
+          placeholder="Your username"
+        />
+
+        <input
+          style={{ width: "70%", marginLeft: "15%" }}
+          value={formState.password}
+          type="password"
+          onChange={(e) =>
+            setFormState({
+              ...formState,
+              password: e.target.value,
+            })
+          }
+          type="text"
+          placeholder="Your password"
+        />
+
+        <input
+          style={{ marginLeft: "15%", marginTop: 50 }}
+          type="checkbox"
+          defaultChecked={checked}
+          onChange={() => setChecked(!checked)}
+        />
+
+        <p style={{ fontSize: 14, marginLeft: "15%", width: "70%" }}>
+          Olen hyväksynyt tietosuojaevästeet tms. mitä ikinä tähän
+          laitetaankaan.
+        </p>
+
+        <button
+          style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%" }}
+          onClick={() => login()}
+        >
+          Kirjaudu
+        </button>
+        <button
+            style={{ width: 100, height: 40, margin: "5%", marginLeft: "45%", backgroundColor: 'grey' }}
+            onClick={() => setRegistered(true)}
+          >
+            Rekisteröidy
+          </button>
+      </div>
+      ) }
+       </div> )}
     </Router>
   );
 }
@@ -363,6 +470,49 @@ function Saved() {
 }
 
 function Profile() {
+
+  const [email, setEmail] = useState("");
+  const currentUser = localStorage.getItem('user');
+  console.log('is', currentUser)
+
+  const login = () => {
+
+   /* console.log('logging in')
+    firebase.auth().signInWithEmailAndPassword(formState.username, formState.password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    localStorage.setItem('user', user);
+    setIsLoggenIn(true);
+    CurrentUserProvider.setCurrentUser(user)
+    
+    // ...
+*/
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        var uid = user.uid;
+        console.log(user)
+        setEmail(user.email)
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+ // })
+ // .catch((error) => {
+  //  var errorCode = error.code;
+  //  var errorMessage = error.message;
+  //  console.log(errorMessage)
+ // });
+  };
+
+  useEffect(() => {
+    login()
+  }, [])
+  
   return (
     <div>
       <div class="header">
@@ -370,9 +520,8 @@ function Profile() {
       </div>
       <div class="homeContainer">
         <h3 class="smallHeader">Info</h3>
-        <h4 style={{ paddingLeft: "0.7em" }}>Tervetuloa, testiuser!</h4>
+        <h4 style={{ paddingLeft: "0.7em" }}>Tervetuloa, {email}</h4>
         <h4 style={{ paddingLeft: "0.7em" }}>Trainee</h4>
-        <h4 style={{ paddingLeft: "0.7em" }}>testi.user@email.com</h4>
         <h4 style={{ paddingLeft: "0.7em" }}>Other info</h4>
 
         <h3 class="smallHeader">Suoritetut testit</h3>

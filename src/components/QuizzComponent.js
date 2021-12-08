@@ -7,6 +7,7 @@ import Firesafety from "../images/firesafety.jpg";
 import QuizzExample from "./QuizzExample";
 //import firebase from 'firebase';
 import { db } from "../firebaseConfig";
+import firebase from "firebase";
 
 function QuizzComponent({ quizzdata, navigation }) {
   const quizzdatanew = quizzdata;
@@ -37,12 +38,31 @@ function QuizzComponent({ quizzdata, navigation }) {
   var questionlist = quizzdata.questions;
   console.log(questionlist);
   console.log("answers", quizzdata.questions[0].answers);
+  const [emailInfo, setEmailInfo] = useState('');
 
   var quizzResultObject = {
     user: "testuser",
     quizzId: quizzdata.id,
     usersCorrectAnswers: totalCorrect,
     date: currentDate,
+  };
+
+  const login = () => {
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const currentUser = localStorage.getItem('user');
+        var uid = user.uid;
+        console.log(user)
+        setEmailInfo(user.email)
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
   };
 
   const updateQuestion = () => {
@@ -70,6 +90,21 @@ function QuizzComponent({ quizzdata, navigation }) {
       setimageurl(quizzdatanew.questions[0].image);
       setQdescr(quizzdata.questions[0].description);
       setCurrentCorrect(quizzdata.questions[0].correctAnswer);
+
+      db.collection("userResults").add({
+        userEmail: emailInfo,
+        correctAnswers: currentCorrect,
+        date: currentDate,
+        username: emailInfo,
+        quizzName: quizzdata.name
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+
       //createquizzresultobject
     } else {
       setShowing(quizzdata[currentQuestion + 1]);
@@ -119,6 +154,7 @@ function QuizzComponent({ quizzdata, navigation }) {
 
   useEffect(() => {
     // Update the document title using the browser API
+    login();
     onfirstupdate();
   }, []);
 
