@@ -114,7 +114,7 @@ function SavedMaterialList() {
   }, []);
 
   return (
-    <div>
+    <div style={{paddingBottom: 60}}>
       {quizzess.map((item) => {
         return (
           <div
@@ -137,7 +137,7 @@ function SavedMaterialList() {
             <div style={{ flex: 5 }}>
               <h3 style={{ marginLeft: 10, margin: 10 }}>{item.quizzName}</h3>
               <p style={{  float: "left", margin: 0, marginLeft: 20, fontSize: 14}}>{item.username}</p>
-              <p style={{  float: "left", margin: 0, marginLeft: 20, fontSize: 14 }}>{item.date}</p>
+              <p style={{  float: "left", margin: 0, marginLeft: 20, fontSize: 14 }}>{item.date.split('G')[0]}</p>
             </div>
             <div style={{ flex: 1 }}>
               <p
