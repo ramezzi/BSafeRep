@@ -63,10 +63,13 @@ function App() {
       .signOut()
       .then(() => {
         // Sign-out successful.
+        localStorage.removeItem("user");
+    window.location.refresh(true);
       })
       .catch((error) => {
         // An error happened.
       });
+      history.push('/')
     localStorage.removeItem("user");
     window.location.refresh(true);
   };
@@ -539,6 +542,7 @@ function Profile() {
   const [email, setEmail] = useState("");
   const currentUser = localStorage.getItem("user");
   console.log("is", currentUser);
+  const history = useHistory();
 
   const login = () => {
     /* console.log('logging in')
@@ -580,6 +584,7 @@ function Profile() {
   const logOut = () => {
     //setIsLoggenIn(false)
     localStorage.removeItem("user");
+    history.push('/')
     window.location.reload();
   };
 
