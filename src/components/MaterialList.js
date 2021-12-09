@@ -150,7 +150,7 @@ function SavedMaterialList() {
                   color: "#6603fc",
                 }}
               >
-                {item.correctAnswers}/10
+                {item.correctAnswers} p
               </p>
             </div>
           </div>

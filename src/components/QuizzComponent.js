@@ -109,7 +109,7 @@ function QuizzComponent({ quizzdata, navigation }) {
 
       db.collection("userResults").add({
         userEmail: emailInfo,
-        correctAnswers: currentCorrect+1,
+        correctAnswers: correctAnswers,
         date: currentDate,
         username: emailInfo,
         quizzName: quizzdata.name
